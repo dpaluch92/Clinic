@@ -61,12 +61,13 @@ public class AuthenticationFilter implements Filter {
                 chain.doFilter(request, response);
             }
 
-        } catch (Throwable t) {
+        } catch (IOException | ServletException t) {
             System.out.println(t.getMessage());
         }
     }
 
     @Override
     public void destroy() {
+        
     }
 }
