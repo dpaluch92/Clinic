@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-18 19:09:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="projekt.inz.pojo.Rejestracja" table="rejestracja" catalog="inz" optimistic-lock="version">
+        <id name="idRejestracji" type="java.lang.Integer">
+            <column name="id_rejestracji" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="wizyta" class="projekt.inz.pojo.Wizyta" fetch="select">
+            <column name="id_wizyty_fk" not-null="true" />
+        </many-to-one>
+        <property name="imie" type="string">
+            <column name="imie" length="30" not-null="true" />
+        </property>
+        <property name="nazwisko" type="string">
+            <column name="nazwisko" length="30" not-null="true" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="30" not-null="true" />
+        </property>
+        <property name="haslo" type="string">
+            <column name="haslo" length="30" not-null="true" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

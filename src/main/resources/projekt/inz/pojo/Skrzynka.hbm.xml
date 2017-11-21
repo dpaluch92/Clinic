@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-18 19:09:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="projekt.inz.pojo.Skrzynka" table="skrzynka" catalog="inz" optimistic-lock="version">
+        <id name="idWiadomosci" type="java.lang.Integer">
+            <column name="id_wiadomosci" />
+            <generator class="identity" />
+        </id>
+        <property name="idNadawcy" type="int">
+            <column name="id_nadawcy" not-null="true" />
+        </property>
+        <property name="idOdbiorcy" type="int">
+            <column name="id_odbiorcy" not-null="true" />
+        </property>
+        <property name="opis" type="string">
+            <column name="opis" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

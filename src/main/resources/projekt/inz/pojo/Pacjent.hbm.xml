@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-11-18 19:09:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="projekt.inz.pojo.Pacjent" table="pacjent" catalog="inz" optimistic-lock="version">
+        <id name="idPacjenta" type="java.lang.Integer">
+            <column name="id_pacjenta" />
+            <generator class="identity" />
+        </id>
+        <property name="imie" type="string">
+            <column name="imie" length="30" not-null="true" />
+        </property>
+        <property name="nazwisko" type="string">
+            <column name="nazwisko" length="30" not-null="true" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="30" not-null="true" />
+        </property>
+        <property name="haslo" type="string">
+            <column name="haslo" length="30" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="30" not-null="true" />
+        </property>
+        <property name="adres" type="string">
+            <column name="adres" length="30" not-null="true" />
+        </property>
+        <property name="pesel" type="string">
+            <column name="pesel" length="11" not-null="true" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
