@@ -42,6 +42,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@RequestParam String login, @RequestParam String haslo, HttpSession session, Model model) {
+        
         Pacjent pacjent = pacjentService.loginPacjent(login,haslo);
         Doktor doktor = doktorService.loginDoktor(login,haslo);
         Admin admin = adminService.loginAdmin(login, haslo);
