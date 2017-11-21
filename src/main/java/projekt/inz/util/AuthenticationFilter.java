@@ -51,6 +51,12 @@ public class AuthenticationFilter implements Filter {
                 } else {
                     response.sendRedirect(request.getContextPath() + "/404");
                 }
+            } else if (requestURI.indexOf("/pacjent") >= 0) {
+                if (session != null && session.getAttribute("loggedInPacjent") != null) {
+                    chain.doFilter(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/404");
+                }
             } else {
                 chain.doFilter(request, response);
             }
