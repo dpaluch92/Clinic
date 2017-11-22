@@ -5,6 +5,7 @@
  */
 package projekt.inz.dao;
 
+import java.util.List;
 import projekt.inz.pojo.Rejestracja;
 
 /**
@@ -13,4 +14,14 @@ import projekt.inz.pojo.Rejestracja;
  */
 public interface RejestracjaDao {
     Rejestracja getRejestracja(String login);
+    
+    List<Rejestracja> getAll();
+    
+    void add(Rejestracja rejestracja );
+
+    void edit(Rejestracja rejestracja);
+
+    void delete(int idRejestracji);
+
+    Rejestracja getRejestracja(int idRejestracji);
 }

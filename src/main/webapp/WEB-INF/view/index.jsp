@@ -13,8 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="containter">
-            
+        <div class="containter">            
             <%@include file="navbar.jsp" %>
         </div>
     </body>

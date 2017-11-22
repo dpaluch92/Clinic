@@ -5,6 +5,7 @@
  */
 package projekt.inz.service;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projekt.inz.dao.RejestracjaDao;
@@ -15,8 +16,8 @@ import projekt.inz.pojo.Rejestracja;
  * @author depek
  */
 @Service("rejestracjaService")
-public class RejestracjaServiceImpl implements RejestracjaService{
-    
+public class RejestracjaServiceImpl implements RejestracjaService {
+
     @Autowired
     RejestracjaDao rejestracjaDao;
 
@@ -33,5 +34,30 @@ public class RejestracjaServiceImpl implements RejestracjaService{
         }
         return null;
     }
-    
+
+    @Override
+    public List<Rejestracja> getAll() {
+        return rejestracjaDao.getAll();
+    }
+
+    @Override
+    public void add(Rejestracja rejestracja) {
+        rejestracjaDao.add(rejestracja);
+    }
+
+    @Override
+    public void edit(Rejestracja rejestracja) {
+        rejestracjaDao.edit(rejestracja);
+    }
+
+    @Override
+    public void delete(int idRejestracji) {
+        rejestracjaDao.delete(idRejestracji);
+    }
+
+    @Override
+    public Rejestracja getRejestracja(int idRejestracji) {
+        return rejestracjaDao.getRejestracja(idRejestracji);
+    }
+
 }

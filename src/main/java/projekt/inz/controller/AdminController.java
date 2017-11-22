@@ -26,10 +26,10 @@ import projekt.inz.service.RejestracjaService;
  */
 @Controller
 public class AdminController {
-    
+
     @Autowired
     PacjentService pacjentService;
-    
+
     @Autowired
     DoktorService doktorService;
 
@@ -37,7 +37,7 @@ public class AdminController {
     public String loggedAdmin() {
         return "admin";
     }
-    
+
     @RequestMapping(value = "/admin.p", method = RequestMethod.POST)
     public String doPacjent(@ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String action, Map<String, Object> map) {
         Pacjent pacjentResult = new Pacjent();
@@ -62,9 +62,9 @@ public class AdminController {
         }
         map.put("pacjent", pacjentResult);
         map.put("pacjentList", pacjentService.getAll());
-        return "pacjent";
+        return "admin";
     }
-    
+
     @RequestMapping(value = "/admin.d", method = RequestMethod.POST)
     public String doDoktor(@ModelAttribute Doktor doktor, BindingResult result, @RequestParam String action, Map<String, Object> map) {
         Doktor doktorResult = new Doktor();
@@ -87,8 +87,8 @@ public class AdminController {
                 doktorResult = searchedDoktor != null ? searchedDoktor : new Doktor();
                 break;
         }
-        map.put("pacjent", doktorResult);
-        map.put("pacjentList", pacjentService.getAll());
-        return "pacjent";
+        map.put("doktor", doktorResult);
+        map.put("dokorList", doktorService.getAll());
+        return "admin";
     }
 }

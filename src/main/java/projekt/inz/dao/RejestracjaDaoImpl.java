@@ -5,6 +5,7 @@
  */
 package projekt.inz.dao;
 
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -28,6 +29,31 @@ public class RejestracjaDaoImpl implements RejestracjaDao{
         n = (Rejestracja) session.createCriteria(Rejestracja.class, "rejestracja").add(Restrictions.eq("rejestracja.login", login)).uniqueResult();
 
         return n;
+    }
+
+    @Override
+    public List<Rejestracja> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void add(Rejestracja rejestracja) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void edit(Rejestracja rejestracja) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(int idRejestracji) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Rejestracja getRejestracja(int idRejestracji) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package projekt.inz.service;
 
+import java.util.List;
 import projekt.inz.pojo.Rejestracja;
 
 /**
@@ -15,4 +16,14 @@ public interface RejestracjaService {
     Rejestracja getRejestracja(String login);
     
     Rejestracja loginRejestracja(String login,String haslo);
+    
+    List<Rejestracja> getAll();
+    
+    void add(Rejestracja rejestracja );
+
+    void edit(Rejestracja rejestracja);
+
+    void delete(int idRejestracji);
+
+    Rejestracja getRejestracja(int idRejestracji);
 }
