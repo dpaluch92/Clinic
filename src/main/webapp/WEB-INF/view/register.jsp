@@ -23,7 +23,7 @@
             </div>
         </div> 
         <div class="container">
-            <f:form class="form-horizontal" action="rejestracja.do" method="POST"  commandName="pacjent">
+            <f:form class="form-horizontal" action="register.do" method="POST"  commandName="pacjent">
                 <div class="form-group">
                     <label for="name" class="cols-sm-2 control-label">Twoje Imię</label>
                     <div class="cols-sm-10">

@@ -29,9 +29,8 @@ public class PacjentController {
 
     @RequestMapping("/pacjent")
     public String setupForm(Map<String, Object> map) {
-        Pacjent pacjent = new Pacjent();
 
-        map.put("pacjent", pacjent);
+        map.put("pacjent", new Pacjent());
         map.put("pacjentList", pacjentService.getAll());
 
         return "pacjent";

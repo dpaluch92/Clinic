@@ -33,16 +33,29 @@ public class AdminController {
     @Autowired
     DoktorService doktorService;
 
+    @Autowired
+    RejestracjaService rejestracjaService;
+
     @RequestMapping("/admin")
-    public String loggedAdmin() {
+    public String loggedAdmin(Map<String, Object> map) {
+
+        map.put("pacjent", new Pacjent());
+        map.put("pacjentList", pacjentService.getAll());
+
+        map.put("doktor", new Doktor());
+        map.put("doktorList", doktorService.getAll());
+
+        /*
+        map.put("rejestracja", new Rejestracja());
+        map.put("rejestracjaList", rejestracjaService.getAll()); */
         return "admin";
     }
 
     @RequestMapping(value = "/admin.p", method = RequestMethod.POST)
-    public String doPacjent(@ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String action, Map<String, Object> map) {
+    public String doPacjent(@ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String actionP, Map<String, Object> map) {
         Pacjent pacjentResult = new Pacjent();
 
-        switch (action.toLowerCase()) {
+        switch (actionP.toLowerCase()) {
             case "add":
                 pacjentService.add(pacjent);
                 pacjentResult = pacjent;
@@ -66,10 +79,10 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admin.d", method = RequestMethod.POST)
-    public String doDoktor(@ModelAttribute Doktor doktor, BindingResult result, @RequestParam String action, Map<String, Object> map) {
+    public String doDoktor(@ModelAttribute Doktor doktor, BindingResult result, @RequestParam String actionD, Map<String, Object> map) {
         Doktor doktorResult = new Doktor();
 
-        switch (action.toLowerCase()) {
+        switch (actionD.toLowerCase()) {
             case "add":
                 doktorService.add(doktor);
                 doktorResult = doktor;
@@ -79,7 +92,7 @@ public class AdminController {
                 doktorResult = doktor;
                 break;
             case "delete":
-                doktorService.delete(doktorResult.getIdDoktor());
+                doktorService.delete(doktor.getIdDoktor());
                 doktorResult = new Doktor();
                 break;
             case "search":
@@ -91,4 +104,32 @@ public class AdminController {
         map.put("dokorList", doktorService.getAll());
         return "admin";
     }
+    /*
+    @RequestMapping(value = "/admin.r", method = RequestMethod.POST)
+    public String doRejestracja(@ModelAttribute Rejestracja rejestracja, BindingResult result, @RequestParam String actionR, Map<String, Object> map) {
+        Rejestracja rejestracjaResult = new Rejestracja();
+
+        switch (actionR.toLowerCase()) {
+            case "add":
+                rejestracjaService.add(rejestracja);
+                rejestracjaResult = rejestracja;
+                break;
+            case "edit":
+                rejestracjaService.edit(rejestracja);
+                rejestracjaResult = rejestracja;
+                break;
+            case "delete":
+                rejestracjaService.delete(rejestracjaResult.getIdRejestracji());
+                rejestracjaResult = new Rejestracja();
+                break;
+            case "search":
+                Rejestracja searchedRejestracja = rejestracjaService.getRejestracja(rejestracja.getIdRejestracji());
+                rejestracjaResult = searchedRejestracja != null ? searchedRejestracja : new Rejestracja();
+                break;
+        }
+        map.put("rejestracja", rejestracjaResult);
+        map.put("rejestracjaList", rejestracjaService.getAll());
+        return "admin";
+    }
+     */
 }
