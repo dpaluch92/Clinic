@@ -40,4 +40,24 @@ public class DoktorServiceImpl implements DoktorService {
         }
         return null;
     }
+
+    @Override
+    public void add(Doktor doktor) {
+        doktorDao.add(doktor);
+    }
+
+    @Override
+    public void edit(Doktor doktor) {
+        doktorDao.edit(doktor);
+    }
+
+    @Override
+    public void delete(int idDoktora) {
+        doktorDao.delete(idDoktora);
+    }
+
+    @Override
+    public Doktor getDoktor(int idDoktora) {
+        return doktorDao.getDoktor(idDoktora);
+    }
 }

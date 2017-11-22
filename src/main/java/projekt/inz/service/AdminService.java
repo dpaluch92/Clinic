@@ -19,4 +19,5 @@ public interface AdminService {
     Admin getAdmin(String login);
     
     Admin loginAdmin(String login,String haslo);
+    
 }

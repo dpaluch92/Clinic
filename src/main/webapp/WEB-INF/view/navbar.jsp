@@ -44,7 +44,7 @@
                     </c:when>
                     <c:otherwise>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="rejestracja"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>
+                            <li><a href="register"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>
                             <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
                         </ul>
                     </c:otherwise>

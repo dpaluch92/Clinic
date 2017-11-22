@@ -19,4 +19,12 @@ public interface DoktorService {
     Doktor getDoktor(String login);
     
     Doktor loginDoktor(String login, String haslo);
+    
+    void add(Doktor doktor);
+
+    void edit(Doktor doktor);
+
+    void delete(int idDoktora);
+
+    Doktor getDoktor(int idDoktora);
 }

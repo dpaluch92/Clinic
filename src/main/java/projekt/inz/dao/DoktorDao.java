@@ -17,4 +17,12 @@ public interface DoktorDao {
     List<Doktor> getAll();
 
     Doktor getDoktor(String login);
+    
+    void add(Doktor doktor);
+
+    void edit(Doktor doktor);
+
+    void delete(int idDoktora);
+
+    Doktor getDoktor(int idDoktora);
 }

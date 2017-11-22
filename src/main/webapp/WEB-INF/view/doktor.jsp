@@ -10,8 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <%@include file="style.jsp" %>
     </head>
     <body>
-        <h1>Hello doktor!</h1>
+        <%@include file="navbar.jsp" %>
     </body>
 </html>
