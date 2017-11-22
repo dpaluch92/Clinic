@@ -25,15 +25,15 @@ public class RegisterController {
     @Autowired
     private PacjentService pacjentService;
 
-    @RequestMapping("/rejestracja")
+    @RequestMapping("/register")
     public String setupForm(Map<String, Object> map) {
         Pacjent pacjent = new Pacjent();
 
         map.put("pacjent", pacjent);
-        return "rejestracja";
+        return "register";
     }
 
-    @RequestMapping("/rejestracja.s")
+    @RequestMapping("/register.do")
     public String doActions(@ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String akcja, Map<String, Object> map) {
         Pacjent pacjentResult = new Pacjent();
 
@@ -44,6 +44,6 @@ public class RegisterController {
                 break;
         }
         map.put("pacjent", pacjentResult);
-        return "index";
+        return "registerSuccess";
     }
 }

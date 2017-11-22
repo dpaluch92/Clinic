@@ -1,6 +1,6 @@
 <%-- 
-    Document   : admin
-    Created on : 2017-11-21, 16:33:55
+    Document   : registerSuccess
+    Created on : 2017-11-22, 12:39:25
     Author     : depek
 --%>
 
@@ -13,6 +13,11 @@
         <%@include file="style.jsp" %>
     </head>
     <body>
+
         <%@include file="navbar.jsp" %>
+
+        <div class="container">
+            <p>Rejestracja przebiegła pomyślnie</p>
+        </div>
     </body>
 </html>

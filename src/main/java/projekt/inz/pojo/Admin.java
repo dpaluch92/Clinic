@@ -12,15 +12,13 @@ public class Admin  implements java.io.Serializable {
      private Integer idAdmina;
      private String login;
      private String haslo;
-     private String role;
 
     public Admin() {
     }
 
-    public Admin(String login, String haslo, String role) {
+    public Admin(String login, String haslo) {
        this.login = login;
        this.haslo = haslo;
-       this.role = role;
     }
    
     public Integer getIdAdmina() {
@@ -44,17 +42,6 @@ public class Admin  implements java.io.Serializable {
     public void setHaslo(String haslo) {
         this.haslo = haslo;
     }
-    public String getRole() {
-        return this.role;
-    }
-    
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-
-
-
 }
 
 

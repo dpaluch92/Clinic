@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <many-to-one name="wizyta" class="projekt.inz.pojo.Wizyta" fetch="select">
-            <column name="id_wizyty_fk" not-null="true" />
+            <column name="id_wizyty_fk" not-null="false" />
         </many-to-one>
         <property name="imie" type="string">
             <column name="imie" length="30" not-null="true" />
@@ -22,9 +22,6 @@
         </property>
         <property name="haslo" type="string">
             <column name="haslo" length="30" not-null="true" />
-        </property>
-        <property name="role" type="string">
-            <column name="role" length="30" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

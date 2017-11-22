@@ -13,22 +13,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="containter-fluid">
-            <nav class="navbar navbar-inverse navbar-static-top">
-                <div class="container">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Aktualności</a></li>
-                        <li><a href="#">Wizyta</a></li>
-                        <li><a href="lekarze">Lekarze</a></li>
-                        <li><a href="cennik">Cennik</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="rejestracja"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
-                    </ul>
-                </div>
-            </nav>
-
+        <div class="containter">
+            
+            <%@include file="navbar.jsp" %>
         </div>
     </body>
 </html>

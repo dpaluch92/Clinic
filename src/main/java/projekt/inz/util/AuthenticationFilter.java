@@ -57,6 +57,18 @@ public class AuthenticationFilter implements Filter {
                 } else {
                     response.sendRedirect(request.getContextPath() + "/404");
                 }
+            } else if (requestURI.indexOf("/doktor") >= 0) {
+                if (session != null && session.getAttribute("loggedInDoktor") != null) {
+                    chain.doFilter(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/404");
+                }
+            } else if (requestURI.indexOf("/rejestracja") >= 0) {
+                if (session != null && session.getAttribute("loggedInRejestracja") != null) {
+                    chain.doFilter(request, response);
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/404");
+                }
             } else {
                 chain.doFilter(request, response);
             }
@@ -68,6 +80,6 @@ public class AuthenticationFilter implements Filter {
 
     @Override
     public void destroy() {
-        
+
     }
 }

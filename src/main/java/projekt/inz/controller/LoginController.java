@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import projekt.inz.pojo.Admin;
 import projekt.inz.pojo.Doktor;
 import projekt.inz.pojo.Pacjent;
+import projekt.inz.pojo.Rejestracja;
 import projekt.inz.service.AdminService;
 import projekt.inz.service.DoktorService;
 import projekt.inz.service.PacjentService;
+import projekt.inz.service.RejestracjaService;
 
 /**
  *
@@ -34,6 +36,9 @@ public class LoginController {
     
     @Autowired
     AdminService adminService;
+    
+    @Autowired
+    RejestracjaService rejestracjaService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLoginForm() {
@@ -46,6 +51,7 @@ public class LoginController {
         Pacjent pacjent = pacjentService.loginPacjent(login,haslo);
         Doktor doktor = doktorService.loginDoktor(login,haslo);
         Admin admin = adminService.loginAdmin(login, haslo);
+        Rejestracja rejestracja = rejestracjaService.loginRejestracja(login, haslo);
 
         if (pacjent != null) {
             session.setAttribute("loggedInPacjent", pacjent);
@@ -56,6 +62,9 @@ public class LoginController {
         } else if (admin != null) {
             session.setAttribute("loggedInAdmin", admin);
             return "redirect:/admin";
+        } else if (rejestracja != null) {
+            session.setAttribute("loggedInRejestracja", rejestracja);
+            return "redirect:/rejestracja";
         }
 
         model.addAttribute("loginError", "Error logging in");
@@ -67,6 +76,7 @@ public class LoginController {
         session.removeAttribute("loggedInPacjent");
         session.removeAttribute("loggedInDoktor");
         session.removeAttribute("loggedInAdmin");
+        session.removeAttribute("loggedInRejestracja");
         return "login";
     }
 

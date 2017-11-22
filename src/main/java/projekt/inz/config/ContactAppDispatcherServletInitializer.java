@@ -27,7 +27,7 @@ public class ContactAppDispatcherServletInitializer extends AbstractAnnotationCo
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/","/index","/pacjent","/pacjent.do","/rejestracja","/rejestracja.s","/cennik","/lekarze","/login",
+        return new String[]{"/","/index","/pacjent","/pacjent.do","/rejestracja","/register","/register.do","/cennik","/lekarze","/login",
         "/doktor"};
     }
     

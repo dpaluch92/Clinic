@@ -14,8 +14,5 @@
         <property name="haslo" type="string">
             <column name="haslo" length="30" not-null="true" />
         </property>
-        <property name="role" type="string">
-            <column name="role" length="30" not-null="true" />
-        </property>
     </class>
 </hibernate-mapping>

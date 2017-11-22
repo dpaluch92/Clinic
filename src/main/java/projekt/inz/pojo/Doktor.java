@@ -18,20 +18,18 @@ public class Doktor  implements java.io.Serializable {
      private String login;
      private String haslo;
      private String email;
-     private String role;
 
     public Doktor() {
     }
 
 	
-    public Doktor(String imie, String nazwisko, String specjalnosc, String login, String haslo, String email, String role) {
+    public Doktor(String imie, String nazwisko, String specjalnosc, String login, String haslo, String email) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.specjalnosc = specjalnosc;
         this.login = login;
         this.haslo = haslo;
         this.email = email;
-        this.role = role;
     }
    
     public Integer getIdDoktor() {
@@ -83,13 +81,7 @@ public class Doktor  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getRole() {
-        return this.role;
-    }
-    
-    public void setRole(String role) {
-        this.role = role;
-    }
+
 }
 
 

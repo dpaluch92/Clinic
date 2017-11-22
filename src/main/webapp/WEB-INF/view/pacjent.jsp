@@ -5,16 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="includes.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>pacjent</title>
+        <%@include file="style.jsp" %>
     </head>
     <body>
+        <%@include file="navbar.jsp" %>
+        
         <f:form action="pacjent.do" method="POST"  commandName="pacjent">
-            <f:hidden path="role" id="role" value="PACJENT" />
             <table>
                 <tr>
                     <th>ID pacjenta</th>

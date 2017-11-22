@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="style.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%@include file="navbar.jsp" %>
+        
         <h1>Hello World!</h1>
         ${loginError}
         <form action="login" method="post">

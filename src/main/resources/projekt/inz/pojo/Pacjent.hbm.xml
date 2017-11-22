@@ -29,8 +29,5 @@
         <property name="pesel" type="string">
             <column name="pesel" length="11" not-null="true" />
         </property>
-        <property name="role" type="string">
-            <column name="role" length="30" not-null="true" />
-        </property>
     </class>
 </hibernate-mapping>
