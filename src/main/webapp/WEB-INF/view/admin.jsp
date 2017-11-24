@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="includes.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,14 +19,14 @@
         <div class="row">
             <div class="col-sm-3">
                 <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
-                    <li><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
+                    <li class="active"><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
                     <li><a href="#doktor" data-toggle="tab">Zarządzaj Lekarzami</a></li>
                     <li><a href="#rejestracja" data-toggle="tab">Zarządzaj Rejestracją</a></li>
                 </ul>
             </div>
             <div class="col-sm-9">
                 <div id="my-tab-content" class="tab-content">
-                    <div id="pacjent" class="tab-pane">
+                    <div id="pacjent" class="tab-pane fade in active">
                         <f:form class="navbar-form form-inline ui form" role="form" action="admin.p" method="POST"  commandName="pacjent">
                             <table>
                                 <tr>
@@ -94,7 +95,7 @@
                         </table>
                         </form>
                     </div>
-                    <div id="doktor" class="tab-pane">
+                    <div id="doktor" class="tab-pane fade">
                         <f:form class="navbar-form form-inline ui form" role="form" action="admin.d" method="POST" commandName="doktor">
                             <table>
                                 <tr>
@@ -157,7 +158,59 @@
                             </c:forEach>
                         </table>
                     </div>
-                    <div id="rejestracja" class="tab-pane">rejestracja</div>
+                    <div id="rejestracja" class="tab-pane fade"> 
+                        <f:form class="navbar-form form-inline ui form" role="form" action="admin.r" method="POST" commandName="rejestracja">
+                            <f:hidden path="wizyta" value="null" />
+                            <table>
+                                <tr>
+                                    <th>ID doktora</th>
+                                    <td><f:input path="idRejestracji" /></td>
+                                </tr>
+                                <tr>
+                                    <th>Imie doktora</th>
+                                    <td><f:input path="imie" /></td>
+                                </tr>
+                                <tr>
+                                    <th>Nazwisko doktora</th>
+                                    <td><f:input path="nazwisko" /></td>
+                                </tr>
+                                <tr>
+                                    <th>username doktora</th>
+                                    <td><f:input path="login" /></td>
+                                </tr>
+                                <tr>
+                                    <th>haslo doktora</th>
+                                    <td><f:input path="haslo" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" name="actionR" value="add" />
+                                        <input type="submit" name="actionR" value="edit" />
+                                        <input type="submit" name="actionR" value="delete" />
+                                        <input type="submit" name="actionR" value="search" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </f:form> 
+
+                        <br />
+                        <table>
+                            <th>ID</th>
+                            <th>Imie</th>
+                            <th>Nazwisko</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                                <c:forEach items="${rejestracjaList}" var="rejestracja">
+                                <tr>
+                                    <td>${rejestracja.idRejestracji}</td>
+                                    <td>${rejestracja.imie}</td>
+                                    <td>${rejestracja.nazwisko}</td>
+                                    <td>${rejestracja.login}</td>
+                                    <td>${rejestracja.haslo}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+
+                    </div>
                 </div>
             </div>
             <div class="col-sm-3">

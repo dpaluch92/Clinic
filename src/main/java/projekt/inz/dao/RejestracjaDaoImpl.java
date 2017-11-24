@@ -17,8 +17,8 @@ import projekt.inz.util.HibernateUtil;
  * @author depek
  */
 @Repository
-public class RejestracjaDaoImpl implements RejestracjaDao{
-    
+public class RejestracjaDaoImpl implements RejestracjaDao {
+
     private Session session;
 
     @Override
@@ -33,7 +33,9 @@ public class RejestracjaDaoImpl implements RejestracjaDao{
 
     @Override
     public List<Rejestracja> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        return session.createQuery("from Rejestracja").list();
     }
 
     @Override
@@ -55,5 +57,5 @@ public class RejestracjaDaoImpl implements RejestracjaDao{
     public Rejestracja getRejestracja(int idRejestracji) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

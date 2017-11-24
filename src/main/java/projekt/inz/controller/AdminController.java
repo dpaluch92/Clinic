@@ -45,9 +45,8 @@ public class AdminController {
         map.put("doktor", new Doktor());
         map.put("doktorList", doktorService.getAll());
 
-        /*
         map.put("rejestracja", new Rejestracja());
-        map.put("rejestracjaList", rejestracjaService.getAll()); */
+        map.put("rejestracjaList", rejestracjaService.getAll());
         return "admin";
     }
 
@@ -75,9 +74,13 @@ public class AdminController {
         }
         map.put("pacjent", pacjentResult);
         map.put("pacjentList", pacjentService.getAll());
-        
+
         map.put("doktor", new Doktor());
         map.put("doktorList", doktorService.getAll());
+        
+        map.put("rejestracja", new Rejestracja());
+        map.put("rejestracjaList", rejestracjaService.getAll());
+        
         return "admin";
     }
 
@@ -107,11 +110,13 @@ public class AdminController {
         map.put("pacjentList", pacjentService.getAll());
 
         map.put("doktor", doktorResult);
-        map.put("dokorList", doktorService.getAll());
+        map.put("doktorList", doktorService.getAll());
+        
+        map.put("rejestracja", new Rejestracja());
+        map.put("rejestracjaList", rejestracjaService.getAll());
         return "admin";
     }
 
-    /*
     @RequestMapping(value = "/admin.r", method = RequestMethod.POST)
     public String doRejestracja(@ModelAttribute Rejestracja rejestracja, BindingResult result, @RequestParam String actionR, Map<String, Object> map) {
         Rejestracja rejestracjaResult = new Rejestracja();
@@ -134,9 +139,14 @@ public class AdminController {
                 rejestracjaResult = searchedRejestracja != null ? searchedRejestracja : new Rejestracja();
                 break;
         }
+        map.put("pacjent", new Pacjent());
+        map.put("pacjentList", pacjentService.getAll());
+
+        map.put("doktor", new Doktor());
+        map.put("doktorList", doktorService.getAll());
+
         map.put("rejestracja", rejestracjaResult);
         map.put("rejestracjaList", rejestracjaService.getAll());
         return "admin";
     }
-     */
 }
