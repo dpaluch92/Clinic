@@ -40,12 +40,18 @@ public class RejestracjaDaoImpl implements RejestracjaDao {
 
     @Override
     public void add(Rejestracja rejestracja) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(rejestracja);
+        session.getTransaction().commit();
     }
 
     @Override
     public void edit(Rejestracja rejestracja) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(rejestracja);
+        session.getTransaction().commit();
     }
 
     @Override
@@ -55,7 +61,11 @@ public class RejestracjaDaoImpl implements RejestracjaDao {
 
     @Override
     public Rejestracja getRejestracja(int idRejestracji) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Rejestracja n;
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        n = (Rejestracja) session.get(Rejestracja.class, idRejestracji);
+        return n;
     }
 
 }

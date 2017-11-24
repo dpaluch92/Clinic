@@ -19,14 +19,18 @@
         <div class="row">
             <div class="col-sm-3">
                 <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
-                    <li class="active"><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
+                    <li><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
+                    <li><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
                     <li><a href="#doktor" data-toggle="tab">Zarządzaj Lekarzami</a></li>
                     <li><a href="#rejestracja" data-toggle="tab">Zarządzaj Rejestracją</a></li>
                 </ul>
             </div>
             <div class="col-sm-9">
                 <div id="my-tab-content" class="tab-content">
-                    <div id="pacjent" class="tab-pane fade in active">
+                    <div id="profil" class="tab-pane fade in active">
+                        profil
+                    </div>
+                    <div id="pacjent" class="tab-pane fade">
                         <f:form class="navbar-form form-inline ui form" role="form" action="admin.p" method="POST"  commandName="pacjent">
                             <table>
                                 <tr>
