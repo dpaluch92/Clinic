@@ -75,6 +75,9 @@ public class AdminController {
         }
         map.put("pacjent", pacjentResult);
         map.put("pacjentList", pacjentService.getAll());
+        
+        map.put("doktor", new Doktor());
+        map.put("doktorList", doktorService.getAll());
         return "admin";
     }
 
@@ -100,10 +103,14 @@ public class AdminController {
                 doktorResult = searchedDoktor != null ? searchedDoktor : new Doktor();
                 break;
         }
+        map.put("pacjent", new Pacjent());
+        map.put("pacjentList", pacjentService.getAll());
+
         map.put("doktor", doktorResult);
         map.put("dokorList", doktorService.getAll());
         return "admin";
     }
+
     /*
     @RequestMapping(value = "/admin.r", method = RequestMethod.POST)
     public String doRejestracja(@ModelAttribute Rejestracja rejestracja, BindingResult result, @RequestParam String actionR, Map<String, Object> map) {

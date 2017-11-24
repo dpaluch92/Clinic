@@ -18,10 +18,9 @@
         <div class="row">
             <div class="col-sm-3">
                 <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
-                    <li><a class="active" href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
+                    <li><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
                     <li><a href="#doktor" data-toggle="tab">Zarządzaj Lekarzami</a></li>
-                    <li><a href="#natychmiastowe" data-toggle="tab">Przelewy natychmiastowe</a></li>
-                    <li><a href="#przeglad" data-toggle="tab">Przegląd przelewów</a></li>
+                    <li><a href="#rejestracja" data-toggle="tab">Zarządzaj Rejestracją</a></li>
                 </ul>
             </div>
             <div class="col-sm-9">
@@ -95,9 +94,8 @@
                         </table>
                         </form>
                     </div>
-
                     <div id="doktor" class="tab-pane">
-                        <f:form class="navbar-form form-inline ui form" role="form" action="admin.d" method="POST"  commandName="doktor">
+                        <f:form class="navbar-form form-inline ui form" role="form" action="admin.d" method="POST" commandName="doktor">
                             <table>
                                 <tr>
                                     <th>ID doktora</th>
@@ -138,7 +136,6 @@
                         </f:form>
 
                         <br />
-
                         <table>
                             <th>ID</th>
                             <th>Imie</th>
@@ -159,8 +156,8 @@
                                 </tr>
                             </c:forEach>
                         </table>
-                        </form>
                     </div>
+                    <div id="rejestracja" class="tab-pane">rejestracja</div>
                 </div>
             </div>
             <div class="col-sm-3">
