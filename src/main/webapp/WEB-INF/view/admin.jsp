@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
-                    <li><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
+                    <li class="active"><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
                     <li><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
                     <li><a href="#doktor" data-toggle="tab">Zarządzaj Lekarzami</a></li>
                     <li><a href="#rejestracja" data-toggle="tab">Zarządzaj Rejestracją</a></li>

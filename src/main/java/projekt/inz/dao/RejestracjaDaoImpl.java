@@ -7,6 +7,7 @@ package projekt.inz.dao;
 
 import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import projekt.inz.pojo.Rejestracja;
@@ -56,7 +57,10 @@ public class RejestracjaDaoImpl implements RejestracjaDao {
 
     @Override
     public void delete(int idRejestracji) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = session.beginTransaction();
+        session.delete(getRejestracja(idRejestracji));
+        trans.commit();
     }
 
     @Override
