@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,7 @@
     </head>
     <body>
         <%@include file="navbar.jsp" %>
-        
+
         <f:form action="pacjent.do" method="POST"  commandName="pacjent">
             <table>
                 <tr>
@@ -50,36 +51,42 @@
                     <td><f:input path="pesel" /></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="action" value="add" />
+                    <td>
                         <input type="submit" name="action" value="edit" />
-                        <input type="submit" name="action" value="delete" />
-                        <input type="submit" name="action" value="search" />
+                    </td>
+                </tr>
+            </table>
+        </f:form>
+        <br />
+        <f:form action="pacjent.w" method="POST"  commandName="wizyta" id="wizytaForm">
+            <table>
+                <f:hidden path="pacjent" value="${sessionScope.loggedInPacjent.idPacjenta}" />
+               
+                <tr>
+
+                    <td>
+                        <select name="doktorList" form="wizytaForm">
+                            <c:forEach items="${doktorList}" var="doktor">                  
+                                <option path="doktor" value="${doktor}">${doktor.imie}</option>
+                            </c:forEach>  
+                        </select>
+                    </td> 
+                </tr>
+                <tr>
+                    <th>Uwagi</th>
+                    <td><f:input type="text" path="uwagi" /></td>
+                </tr>
+                <tr>
+                    <th>Termin wizyty</th>
+                    <td><f:input type="date" path="terminWizyty"  value="2013-01-08"/></td>
+                </tr>        
+                <tr>
+                    <td>
+                        <input type="submit" name="actionW" value="add" />
                     </td>
                 </tr>
             </table>
         </f:form>
 
-        <br />
-
-        <table>
-            <th>ID</th>
-            <th>Imie</th>
-            <th>Nazwisko</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Email</th>
-            <th>Adres</th>
-                <c:forEach items="${pacjentList}" var="pacjent">
-                <tr>
-                    <td>${pacjent.idPacjenta}</td>
-                    <td>${pacjent.imie}</td>
-                    <td>${pacjent.nazwisko}</td>
-                    <td>${pacjent.login}</td>
-                    <td>${pacjent.haslo}</td>
-                    <td>${pacjent.email}</td>
-                    <td>${pacjent.adres}</td>
-                </tr>
-            </c:forEach>
-        </table>
     </body>
 </html>

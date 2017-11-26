@@ -8,6 +8,8 @@ package projekt.inz.controller;
 import projekt.inz.pojo.Pacjent;
 import projekt.inz.service.PacjentService;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import projekt.inz.pojo.Wizyta;
+import projekt.inz.service.DoktorService;
+import projekt.inz.service.WizytaService;
 
 /**
  *
@@ -27,11 +32,18 @@ public class PacjentController {
     @Autowired
     private PacjentService pacjentService;
 
-    @RequestMapping("/pacjent")
-    public String setupForm(Map<String, Object> map) {
+    @Autowired
+    private WizytaService wizytaService;
 
-        map.put("pacjent", new Pacjent());
-        map.put("pacjentList", pacjentService.getAll());
+    @Autowired
+    private DoktorService doktorService;
+
+    @RequestMapping("/pacjent")
+    public String setupForm(HttpSession session, Map<String, Object> map) {
+
+        map.put("pacjent", session.getAttribute("loggedInPacjent"));
+        map.put("doktorList", doktorService.getAll());
+        map.put("wizyta", new Wizyta());
 
         return "pacjent";
     }
@@ -41,25 +53,30 @@ public class PacjentController {
         Pacjent pacjentResult = new Pacjent();
 
         switch (action.toLowerCase()) {
-            case "add":
-                pacjentService.add(pacjent);
-                pacjentResult = pacjent;
-                break;
             case "edit":
                 pacjentService.edit(pacjent);
                 pacjentResult = pacjent;
                 break;
-            case "delete":
-                pacjentService.delete(pacjent.getIdPacjenta());
-                pacjentResult = new Pacjent();
-                break;
-            case "search":
-                Pacjent searchedPacjent = pacjentService.getPacjent(pacjent.getIdPacjenta());
-                pacjentResult = searchedPacjent != null ? searchedPacjent : new Pacjent();
-                break;
         }
         map.put("pacjent", pacjentResult);
-        map.put("pacjentList", pacjentService.getAll());
+        map.put("doktorList", doktorService.getAll());
+        map.put("wizyta", new Wizyta());
+        return "pacjent";
+    }
+
+    @RequestMapping(value = "/pacjent.w", method = RequestMethod.POST)
+    public String doWizyta(HttpSession session, @ModelAttribute Wizyta wizyta, BindingResult result, @RequestParam String actionW, Map<String, Object> map) {
+        Wizyta wizytaResult = new Wizyta();
+
+        switch (actionW.toLowerCase()) {
+            case "add":
+                wizytaService.add(wizyta);
+                wizytaResult = wizyta;
+                break;
+        }
+        map.put("wizyta", wizytaResult);
+        map.put("doktorList", doktorService.getAll());
+        map.put("pacjent", session.getAttribute("loggedInPacjent"));
         return "pacjent";
     }
 

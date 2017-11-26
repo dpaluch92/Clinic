@@ -19,15 +19,10 @@ public class Wizyta  implements java.io.Serializable {
 
     public Wizyta() {
     }
-
 	
-    public Wizyta(Date terminWizyty, String uwagi) {
-        this.terminWizyty = terminWizyty;
-        this.uwagi = uwagi;
-    }
-    public Wizyta(Doktor doktor, Pacjent pacjent, Date terminWizyty, String uwagi) {
-       this.doktor = doktor;
+    public Wizyta(Pacjent pacjent,Doktor doktor, Date terminWizyty, String uwagi) {
        this.pacjent = pacjent;
+       this.doktor = doktor;
        this.terminWizyty = terminWizyty;
        this.uwagi = uwagi;
     }
