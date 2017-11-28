@@ -56,36 +56,14 @@
                     </td>
                 </tr>
             </table>
-        </f:form>
+        </f:form> 
         <br />
-        <f:form action="pacjent.w" method="POST"  commandName="wizyta" id="wizytaForm">
-            <table>
-                <f:hidden path="pacjent" value="${sessionScope.loggedInPacjent.idPacjenta}" />
-               
-                <tr>
-
-                    <td>
-                        <select name="doktorList" form="wizytaForm">
-                            <c:forEach items="${doktorList}" var="doktor">                  
-                                <option path="doktor" value="${doktor}">${doktor.imie}</option>
-                            </c:forEach>  
-                        </select>
-                    </td> 
-                </tr>
-                <tr>
-                    <th>Uwagi</th>
-                    <td><f:input type="text" path="uwagi" /></td>
-                </tr>
-                <tr>
-                    <th>Termin wizyty</th>
-                    <td><f:input type="date" path="terminWizyty"  value="2013-01-08"/></td>
-                </tr>        
-                <tr>
-                    <td>
-                        <input type="submit" name="actionW" value="add" />
-                    </td>
-                </tr>
-            </table>
+        <f:form method="post" modelAttribute="selectedDoktor" action="pacjent.w">
+            <f:select path="idDoktor">
+                <f:options items="${doktorList}" itemValue="idDoktor" itemLabel="imie" />
+            </f:select>
+            <f:input  />
+            <input type="submit" name="actionW" value="add" />
         </f:form>
 
     </body>
