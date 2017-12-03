@@ -8,9 +8,6 @@
             <column name="id_uslugi" />
             <generator class="identity" />
         </id>
-        <many-to-one name="doktor" class="projekt.inz.pojo.Doktor" fetch="select">
-            <column name="id_doktora_fk" />
-        </many-to-one>
         <property name="opis" type="string">
             <column name="opis" length="30" not-null="true" />
         </property>

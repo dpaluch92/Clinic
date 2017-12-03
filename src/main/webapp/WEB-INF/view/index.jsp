@@ -16,5 +16,21 @@
         <div class="containter">            
             <%@include file="navbar.jsp" %>
         </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-6">
+                    <h3>Aktualności</h3>
+                    <br />
+                    <div class="well">
+                        <iframe width="560" height="315" src="//www.youtube.com/embed/aPLL45KpoSE" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+        </div>
     </body>
 </html>

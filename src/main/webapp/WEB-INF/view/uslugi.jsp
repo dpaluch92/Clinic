@@ -21,7 +21,6 @@
                 <thead>
                     <tr>
                         <th><h3 class="title">Id</h3></th>
-                        <th><h3 class="title">Doktor</h3></th>
                         <th><h3 class="title">Opis</h3></th>
                         <th><h3 class="title">Cena</h3></th>
                     </tr>
@@ -30,7 +29,6 @@
                     <c:forEach items="${uslugiList}" var="uslugi">
                         <tr>
                             <td>${uslugi.idUslugi}</td>
-                            <td>${uslugi.doktor}</td>
                             <td>${uslugi.opis}</td>
                             <td>${uslugi.cena}</td>
                         </tr>

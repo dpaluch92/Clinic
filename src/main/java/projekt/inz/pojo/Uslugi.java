@@ -10,7 +10,6 @@ public class Uslugi  implements java.io.Serializable {
 
 
      private Integer idUslugi;
-     private Doktor doktor;
      private String opis;
      private int cena;
 
@@ -22,11 +21,6 @@ public class Uslugi  implements java.io.Serializable {
         this.opis = opis;
         this.cena = cena;
     }
-    public Uslugi(Doktor doktor, String opis, int cena) {
-       this.doktor = doktor;
-       this.opis = opis;
-       this.cena = cena;
-    }
    
     public Integer getIdUslugi() {
         return this.idUslugi;
@@ -34,13 +28,6 @@ public class Uslugi  implements java.io.Serializable {
     
     public void setIdUslugi(Integer idUslugi) {
         this.idUslugi = idUslugi;
-    }
-    public Doktor getDoktor() {
-        return this.doktor;
-    }
-    
-    public void setDoktor(Doktor doktor) {
-        this.doktor = doktor;
     }
     public String getOpis() {
         return this.opis;

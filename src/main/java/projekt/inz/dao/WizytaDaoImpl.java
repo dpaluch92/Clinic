@@ -22,6 +22,7 @@ public class WizytaDaoImpl implements WizytaDao {
     private Session session;
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Wizyta> getAll() {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

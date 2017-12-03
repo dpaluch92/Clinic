@@ -33,6 +33,7 @@ public class RejestracjaDaoImpl implements RejestracjaDao {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Rejestracja> getAll() {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
