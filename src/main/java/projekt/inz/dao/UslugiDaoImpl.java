@@ -27,5 +27,14 @@ public class UslugiDaoImpl implements UslugiDao {
         session.beginTransaction();
         return session.createQuery("from Uslugi").list();
     }
+    
+    @Override
+    public Uslugi getUslugi(int idUslugi) {
+        Uslugi n;
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        n = (Uslugi) session.get(Uslugi.class, idUslugi);
+        return n;
+    }
 
 }

@@ -15,4 +15,6 @@ import projekt.inz.pojo.Uslugi;
 public interface UslugiService {
 
     List<Uslugi> getAll();
+    
+    Uslugi getUslugi(int idUslugi);
 }

@@ -16,4 +16,6 @@ public interface UslugiDao {
 
     List<Uslugi> getAll();
     
+    Uslugi getUslugi(int idUslugi);
+    
 }

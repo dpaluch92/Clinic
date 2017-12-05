@@ -115,11 +115,15 @@
                                         </div>
                                     </div>    
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Uwagi :</label>
+                                        <label class="col-sm-3 col-form-label">Usługi :</label>
                                         <div class="col-sm-6">
-                                            <textarea style="resize: none;" name="uwagi" class="form-control" ></textarea>
+                                            <select class="form-control" name="uslugiForm" >
+                                                <c:forEach items="${uslugiList}" var="uslugi">
+                                                    <option value="${uslugi.idUslugi}"> ${uslugi.opis} , ${uslugi.cena} </option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
-                                    </div>
+                                    </div>    
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Termin Wizyty :</label>
                                         <div class="col-sm-6">

@@ -3,7 +3,6 @@ package projekt.inz.controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
 import projekt.inz.pojo.Pacjent;
 import javax.servlet.http.HttpSession;
 import static org.hibernate.jpa.internal.EntityManagerImpl.LOG;
@@ -20,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import projekt.inz.pojo.Doktor;
+import projekt.inz.pojo.Uslugi;
 import projekt.inz.pojo.Wizyta;
 import projekt.inz.service.DoktorService;
 import projekt.inz.service.PacjentService;
+import projekt.inz.service.UslugiService;
 import projekt.inz.service.WizytaService;
 
 /**
@@ -40,7 +41,10 @@ public class PacjentController {
 
     @Autowired
     private PacjentService pacjentService;
-
+    
+    @Autowired
+    private UslugiService uslugiService;
+    
     @InitBinder
     public void bindingPreparation(WebDataBinder binder) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -53,6 +57,7 @@ public class PacjentController {
 
         model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
         model.addAttribute("doktorList", doktorService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         return "pacjent";
     }
 
@@ -67,19 +72,23 @@ public class PacjentController {
                 break;
         }
         model.addAttribute("pacjent", pacjentResult);
+        model.addAttribute("doktorList", doktorService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         return "pacjent";
     }
 
     @RequestMapping(value = "/pacjent.w", method = RequestMethod.POST)
-    public String doWizyta(HttpSession session, Model model, String doktorForm, String uwagi, Date terminWizyty) {
+    public String doWizyta(HttpSession session, Model model, String doktorForm, Date terminWizyty, String uslugiForm) {
         LOG.info(terminWizyty.toString());
         Pacjent pacjent = (Pacjent) session.getAttribute("loggedInPacjent");
         Doktor doktor = doktorService.getDoktor(Integer.parseInt(doktorForm));
+        Uslugi uslugi = uslugiService.getUslugi(Integer.parseInt(uslugiForm));
 
-        Wizyta wizyta = new Wizyta(pacjent, doktor, terminWizyty, uwagi);
+        Wizyta wizyta = new Wizyta(doktor,pacjent,uslugi,terminWizyty);
         wizytaService.add(wizyta);
         model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
         model.addAttribute("doktorList", doktorService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         return "pacjent";
     }
 }

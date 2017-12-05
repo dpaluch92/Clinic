@@ -27,4 +27,11 @@ public class UslugiServiceImpl implements UslugiService {
     public List<Uslugi> getAll() {
         return uslugiDao.getAll();
     }
+
+    @Override
+    public Uslugi getUslugi(int idUslugi) {
+        return uslugiDao.getUslugi(idUslugi);
+    }
+    
+    
 }
