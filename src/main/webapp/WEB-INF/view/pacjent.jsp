@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-9">
-                                            <input class="btn btn-default pull-right" type="submit" name="actionP" value="Edytuj Profil" />
+                                            <input class="btn btn-default pull-right" type="submit" name="actionP" value="edit" />
                                         </div>
                                     </div>
                                 </f:form>

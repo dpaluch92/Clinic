@@ -5,7 +5,6 @@
  */
 package projekt.inz.controller;
 
-import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import projekt.inz.pojo.Doktor;
-import projekt.inz.pojo.Pacjent;
 import projekt.inz.service.DoktorService;
 
 /**
@@ -41,7 +39,7 @@ public class DoktorController {
 
         switch (actionD.toLowerCase()) {
             case "edit":
-                doktorService.add(doktor);
+                doktorService.edit(doktor);
                 doktorResult = doktor;
                 break;
         }

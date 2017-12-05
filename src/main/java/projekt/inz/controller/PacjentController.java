@@ -67,7 +67,7 @@ public class PacjentController {
 
         switch (actionP.toLowerCase()) {
             case "edit":
-                pacjentService.add(pacjent);
+                pacjentService.edit(pacjent);
                 pacjentResult = pacjent;
                 break;
         }
