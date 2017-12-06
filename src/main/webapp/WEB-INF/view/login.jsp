@@ -15,8 +15,7 @@
     <body>
         <%@include file="navbar.jsp" %>
         <div class="row">
-            <div class="center-block">
-
+            <div class="col-md-6 col-md-offset-3">
                 ${loginError}
                 <form action="login" method="post">
                     <input type="text" id="login" name="login" placeholder="user name" />

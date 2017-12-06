@@ -28,15 +28,19 @@
                                 <c:choose>
                                     <c:when test="${sessionScope.loggedInPacjent != null}">
                                         <li><a>Witaj ${loggedInPacjent.imie}</a></li>
+                                        <li><a href="pacjent">Profil</a></li>
                                         </c:when>
                                         <c:when test="${sessionScope.loggedInAdmin != null}">
                                         <li><a>Witaj ${loggedInAdmin.login}</a></li>
+                                        <li><a href="admin">Profil</a></li>
                                         </c:when>
                                         <c:when test="${sessionScope.loggedInDoktor != null}">
                                         <li><a>Witaj ${loggedInDoktor.imie}</a></li>
+                                        <li><a href="doktor">Profil</a></li>
                                         </c:when>
                                         <c:when test="${sessionScope.loggedInRejestracja != null}">
                                         <li><a>Witaj ${loggedInRejestracja.imie}</a></li>
+                                        <li><a href="rejestracja">Profil</a></li>
                                         </c:when>
                                     </c:choose>
                                 <li><a href="logout">Logout</a></li>
