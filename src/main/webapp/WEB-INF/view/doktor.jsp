@@ -24,7 +24,7 @@
                         <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
                             <li class="active"><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
                             <li><a href="#edytuj" data-toggle="tab">Edytuj Profil</a></li>
-                            <li><a href="#wizyta" data-toggle="tab">Zamów Wizytę</a></li>
+                            <li><a href="#lista" data-toggle="tab">Lista Wizyt</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-9">
@@ -98,6 +98,28 @@
                                         </div>
                                     </div>
                                 </f:form>
+                            </div>
+                            <div id="lista" class="tab-pane fade">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Imie Pacjenta</th>
+                                            <th>Naziwsko Pacjenta</th>
+                                            <th>Termin Wizyty</th>
+                                            <th>Usługa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${wizytaList}" var="wizyta">
+                                            <tr>
+                                                <td>${wizyta.pacjent.getImie()}</td>
+                                                <td>${wizyta.pacjent.getNazwisko()}</td>
+                                                <td>${wizyta.terminWizyty}</td>
+                                                <td>${wizyta.uslugi.getOpis()}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

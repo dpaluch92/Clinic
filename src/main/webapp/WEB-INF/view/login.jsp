@@ -14,14 +14,17 @@
     </head>
     <body>
         <%@include file="navbar.jsp" %>
-        
-        <h1>Hello World!</h1>
-        ${loginError}
-        <form action="login" method="post">
-            <input type="text" id="login" name="login" placeholder="user name" />
-            <input type="password" id="haslo" name="haslo" placeholder="haslo" />
+        <div class="row">
+            <div class="center-block">
 
-            <button id="loginButton">Login</button>
-        </form>
+                ${loginError}
+                <form action="login" method="post">
+                    <input type="text" id="login" name="login" placeholder="user name" />
+                    <input type="password" id="haslo" name="haslo" placeholder="haslo" />
+
+                    <button id="loginButton">Login</button>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

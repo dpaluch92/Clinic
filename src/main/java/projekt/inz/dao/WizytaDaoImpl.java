@@ -61,5 +61,13 @@ public class WizytaDaoImpl implements WizytaDao {
         n = (Wizyta) session.get(Wizyta.class, idWizyty);
         return n;
     }
+    
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Wizyta> getWizytaByIdDoktor(int idDoktora) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        return session.createQuery("from Wizyta where idDoktora="+idDoktora).list();
+    }
 
 }

@@ -24,4 +24,5 @@ public interface WizytaService {
 
     Wizyta getWizyta(int idWizyty);
 
+    List<Wizyta> getWizytaByIdDoktor(int idDoktor);
 }

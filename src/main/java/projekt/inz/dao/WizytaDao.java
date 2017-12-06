@@ -23,5 +23,7 @@ public interface WizytaDao {
     void delete(int idWizyty);
     
     Wizyta getWizyta(int idWizyty);
+    
+    List<Wizyta> getWizytaByIdDoktor(int idDoktor);
        
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import projekt.inz.pojo.Doktor;
 import projekt.inz.service.DoktorService;
+import projekt.inz.service.WizytaService;
 
 /**
  *
@@ -26,10 +27,15 @@ public class DoktorController {
 
     @Autowired
     DoktorService doktorService;
+    
+    @Autowired
+    WizytaService wizytaService;
 
     @RequestMapping("/doktor")
     public String logged(HttpSession session, Model model) {
+        Doktor logged = (Doktor) session.getAttribute("loggedInDoktor");
         model.addAttribute("doktor", session.getAttribute("loggedInDoktor"));
+        model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(logged.getIdDoktor()));
         return "doktor";
     }
 
@@ -43,6 +49,7 @@ public class DoktorController {
                 doktorResult = doktor;
                 break;
         }
+        model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
         model.addAttribute("doktor", doktorResult);
         return "doktor";
     }

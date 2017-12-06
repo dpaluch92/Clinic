@@ -47,4 +47,9 @@ public class WizytaServiceImpl implements WizytaService {
         return wizytaDao.getWizyta(idWizyty);
     }
 
+    @Override
+    public List<Wizyta> getWizytaByIdDoktor(int idDoktor) {
+        return wizytaDao.getWizytaByIdDoktor(idDoktor);
+    }
+
 }
