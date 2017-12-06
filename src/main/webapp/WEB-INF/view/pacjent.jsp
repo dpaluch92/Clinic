@@ -53,6 +53,7 @@
                             </div>
                             <div id="edytuj" class="tab-pane fade ">
                                 <f:form class="form-horizontal" role="form" action="pacjent.e" method="POST"  commandName="pacjent">
+                                    <f:hidden path="idPacjenta" value="${pacjent.idPacjenta}" />
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Imie :</label>
                                         <div class="col-sm-6">
