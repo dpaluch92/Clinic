@@ -20,6 +20,7 @@
                     <li><a href="terminy">Wizyta</a></li>
                     <li><a href="lekarze">Lekarze</a></li>
                     <li><a href="cennik">Cennik</a></li>
+                    <li><a href="kontakt">Kontakt</a></li>
                 </ul>
                 <c:choose>
                     <c:when test="${sessionScope.loggedInPacjent != null || sessionScope.loggedInAdmin !=null || 

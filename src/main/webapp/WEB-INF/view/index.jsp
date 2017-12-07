@@ -12,15 +12,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <div class="containter">            
-            <%@include file="navbar.jsp" %>
-        </div>
+    <body>     
+        <%@include file="navbar.jsp" %>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">elo</div>
-            </div>
+
+        <div class="container">
+            <p>Aktualnosci</p>
         </div>
     </body>
 </html>

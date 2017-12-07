@@ -6,6 +6,7 @@
 package projekt.inz.controller;
 
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,11 +38,11 @@ public class AdminController {
     RejestracjaService rejestracjaService;
 
     @RequestMapping("/admin")
-    public String loggedAdmin(Map<String, Object> map) {
+    public String loggedAdmin(HttpSession session, Map<String, Object> map) {
 
         map.put("pacjent", new Pacjent());
         map.put("pacjentList", pacjentService.getAll());
-
+        map.put("admin", session.getAttribute("loggedInAdmin"));
         map.put("doktor", new Doktor());
         map.put("doktorList", doktorService.getAll());
 
@@ -51,7 +52,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admin.p", method = RequestMethod.POST)
-    public String doPacjent(@ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String actionP, Map<String, Object> map) {
+    public String doPacjent(HttpSession session, @ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String actionP, Map<String, Object> map) {
         Pacjent pacjentResult = new Pacjent();
 
         switch (actionP.toLowerCase()) {
@@ -74,18 +75,18 @@ public class AdminController {
         }
         map.put("pacjent", pacjentResult);
         map.put("pacjentList", pacjentService.getAll());
-
+        map.put("admin", session.getAttribute("loggedInAdmin"));
         map.put("doktor", new Doktor());
         map.put("doktorList", doktorService.getAll());
-        
+
         map.put("rejestracja", new Rejestracja());
         map.put("rejestracjaList", rejestracjaService.getAll());
-        
+
         return "admin";
     }
 
     @RequestMapping(value = "/admin.d", method = RequestMethod.POST)
-    public String doDoktor(@ModelAttribute Doktor doktor, BindingResult result, @RequestParam String actionD, Map<String, Object> map) {
+    public String doDoktor(HttpSession session, @ModelAttribute Doktor doktor, BindingResult result, @RequestParam String actionD, Map<String, Object> map) {
         Doktor doktorResult = new Doktor();
 
         switch (actionD.toLowerCase()) {
@@ -108,17 +109,17 @@ public class AdminController {
         }
         map.put("pacjent", new Pacjent());
         map.put("pacjentList", pacjentService.getAll());
-
+        map.put("admin", session.getAttribute("loggedInAdmin"));
         map.put("doktor", doktorResult);
         map.put("doktorList", doktorService.getAll());
-        
+
         map.put("rejestracja", new Rejestracja());
         map.put("rejestracjaList", rejestracjaService.getAll());
         return "admin";
     }
 
     @RequestMapping(value = "/admin.r", method = RequestMethod.POST)
-    public String doRejestracja(@ModelAttribute Rejestracja rejestracja, BindingResult result, @RequestParam String actionR, Map<String, Object> map) {
+    public String doRejestracja(HttpSession session, @ModelAttribute Rejestracja rejestracja, BindingResult result, @RequestParam String actionR, Map<String, Object> map) {
         Rejestracja rejestracjaResult = new Rejestracja();
 
         switch (actionR.toLowerCase()) {
@@ -141,7 +142,7 @@ public class AdminController {
         }
         map.put("pacjent", new Pacjent());
         map.put("pacjentList", pacjentService.getAll());
-
+        map.put("admin", session.getAttribute("loggedInAdmin"));
         map.put("doktor", new Doktor());
         map.put("doktorList", doktorService.getAll());
 
