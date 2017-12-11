@@ -3,14 +3,17 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/inz</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/inz</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping resource="projekt/inz/pojo/Doktor.hbm.xml"/>
     <mapping resource="projekt/inz/pojo/Skrzynka.hbm.xml"/>
+    <mapping resource="projekt/inz/pojo/Recepta.hbm.xml"/>
     <mapping resource="projekt/inz/pojo/Rejestracja.hbm.xml"/>
     <mapping resource="projekt/inz/pojo/Admin.hbm.xml"/>
+    <mapping resource="projekt/inz/pojo/Artykul.hbm.xml"/>
+    <mapping resource="projekt/inz/pojo/KartaPacjenta.hbm.xml"/>
     <mapping resource="projekt/inz/pojo/Uslugi.hbm.xml"/>
     <mapping resource="projekt/inz/pojo/Pacjent.hbm.xml"/>
     <mapping resource="projekt/inz/pojo/Wizyta.hbm.xml"/>

@@ -23,6 +23,8 @@
                         <li class="active"><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
                         <li><a href="#edytuj" data-toggle="tab">Edytuj Profil</a></li>
                         <li><a href="#lista" data-toggle="tab">Lista Wizyt</a></li>
+                        <li><a href="#nowa" data-toggle="tab">Wyślij Wiadomość</a></li>
+                        <li><a href="#skrzynka" data-toggle="tab">Skrzynka Odbiorcza</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -115,6 +117,53 @@
                                             <td>${wizyta.terminWizyty}</td>
                                             <td>${wizyta.uslugi.getOpis()}</td>
                                         </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                                    <div id="nowa" class="tab-pane fade">
+                            <form class="form-horizontal" role="form" method="POST" role="form" action="doktor.msg">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Pacjent :</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="pacjentForm" >
+                                            <c:forEach items="${pacjentList}" var="pacjent">
+                                                <option value="${pacjent.idPacjenta}"> ${pacjent.imie} </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>    
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Wiadomość :</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="msg" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <input type="submit"  value="Wyślij wiadomość" class="btn btn-default pull-right"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="skrzynka" class="tab-pane fade">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nadawca</th>
+                                        <th>Odbiorca</th>
+                                        <th>Treść</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${msgList}" var="m">
+                                    <tr>
+                                        <td>${m.doktor.imie}</td>
+                                        <td>${m.pacjent.imie}</td>
+                                        <td>${m.opis}</td>
+                                    </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>

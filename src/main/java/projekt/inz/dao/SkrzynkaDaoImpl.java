@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
-import projekt.inz.pojo.Wizyta;
+import projekt.inz.pojo.Skrzynka;
 import projekt.inz.util.HibernateUtil;
 
 /**
@@ -17,57 +17,56 @@ import projekt.inz.util.HibernateUtil;
  * @author depek
  */
 @Repository
-public class WizytaDaoImpl implements WizytaDao {
+public class SkrzynkaDaoImpl implements SkrzynkaDao {
 
     private Session session;
 
     @Override
-    @SuppressWarnings("unchecked")
-    public List<Wizyta> getAll() {
+    public void add(Skrzynka wiadomosc) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("from Wizyta").list();
-    }
-
-    @Override
-    public void edit(Wizyta wizyta) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.saveOrUpdate(wizyta);
+        session.save(wiadomosc);
         session.getTransaction().commit();
     }
 
     @Override
-    public void add(Wizyta wizyta) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(wizyta);
-        session.getTransaction().commit();
-    }
-
-    @Override
-    public void delete(int idWizyty) {
+    public void delete(int idWiadomosc) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = session.beginTransaction();
-        session.delete(getWizyta(idWizyty));
+        session.delete(getMsg(idWiadomosc));
         trans.commit();
     }
 
     @Override
-    public Wizyta getWizyta(int idWizyty) {
-        Wizyta n;
+    public Skrzynka getMsg(int idWiadomosci) {
+        Skrzynka n;
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        n = (Wizyta) session.get(Wizyta.class, idWizyty);
+        n = (Skrzynka) session.get(Skrzynka.class, idWiadomosci);
         return n;
     }
-    
+
     @Override
-    @SuppressWarnings("unchecked")
-    public List<Wizyta> getWizytaByIdDoktor(int idDoktora) {
+    public List<Skrzynka> getAll() {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("from Wizyta where doktor="+idDoktora).list();
+        return session.createQuery("from Skrzynka").list();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Skrzynka> getAllByDoktor(int idDoktor) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        return session.createQuery("from Skrzynka where doktor=" + idDoktor).list();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Skrzynka> getAllByPacjent(int idPacjent) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        return session.createQuery("from Skrzynka where pacjent=" + idPacjent).list();
     }
 
 }

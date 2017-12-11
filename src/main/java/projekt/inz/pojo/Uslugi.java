@@ -1,5 +1,5 @@
 package projekt.inz.pojo;
-// Generated 2017-12-05 17:08:29 by Hibernate Tools 4.3.1
+// Generated 2017-12-08 19:01:26 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

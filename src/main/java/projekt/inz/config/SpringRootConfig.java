@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @author depek
  */
 @Configuration
-@ComponentScan(basePackages = {"inz.projekt"})
+@ComponentScan(basePackages = {"projekt.inz"})
 public class SpringRootConfig {
     
 }

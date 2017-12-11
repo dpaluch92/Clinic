@@ -3,10 +3,10 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-12-08 19:01:27 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="projekt.inz.pojo.Skrzynka" table="skrzynka" catalog="inz" optimistic-lock="version">
-        <id name="idWiadomosci" type="java.lang.Integer">
-            <column name="id_wiadomosci" />
-            <generator class="identity" />
+    <class name="projekt.inz.pojo.Recepta" table="recepta" catalog="inz" optimistic-lock="version">
+        <id name="idRecepty" type="int">
+            <column name="id_recepty" />
+            <generator class="assigned" />
         </id>
         <many-to-one name="doktor" class="projekt.inz.pojo.Doktor" fetch="select">
             <column name="id_doktora_fk" not-null="true" />
@@ -14,8 +14,8 @@
         <many-to-one name="pacjent" class="projekt.inz.pojo.Pacjent" fetch="select">
             <column name="id_pacjenta_fk" not-null="true" />
         </many-to-one>
-        <property name="opis" type="string">
-            <column name="opis" length="30" not-null="true" />
+        <property name="przepisanieRecepty" type="string">
+            <column name="przepisanie_recepty" length="250" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import projekt.inz.pojo.Doktor;
+import projekt.inz.pojo.Pacjent;
+import projekt.inz.pojo.Skrzynka;
 import projekt.inz.service.DoktorService;
+import projekt.inz.service.PacjentService;
+import projekt.inz.service.SkrzynkaService;
 import projekt.inz.service.WizytaService;
 
 /**
@@ -26,16 +30,24 @@ import projekt.inz.service.WizytaService;
 public class DoktorController {
 
     @Autowired
-    DoktorService doktorService;
-    
+    private DoktorService doktorService;
+
     @Autowired
-    WizytaService wizytaService;
+    private WizytaService wizytaService;
+
+    @Autowired
+    private SkrzynkaService skrzynkaService;
+
+    @Autowired
+    private PacjentService pacjentService;
 
     @RequestMapping("/doktor")
     public String logged(HttpSession session, Model model) {
         Doktor logged = (Doktor) session.getAttribute("loggedInDoktor");
         model.addAttribute("doktor", session.getAttribute("loggedInDoktor"));
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(logged.getIdDoktor()));
+        model.addAttribute("msgList", skrzynkaService.getAllByDoktor(logged.getIdDoktor()));
+        model.addAttribute("pacjentList", pacjentService.getAll());
         return "doktor";
     }
 
@@ -51,6 +63,20 @@ public class DoktorController {
         }
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
         model.addAttribute("doktor", doktorResult);
+        return "doktor";
+    }
+
+    @RequestMapping(value = "/doktor.msg", method = RequestMethod.POST)
+    public String doMsg(HttpSession session, Model model, String pacjentForm, String msg) {
+
+        Doktor doktor = (Doktor) session.getAttribute("loggedInDoktor");
+        Pacjent pacjent = pacjentService.getPacjent(Integer.parseInt(pacjentForm));
+
+        Skrzynka newMsg = new Skrzynka(doktor, pacjent, msg);
+        skrzynkaService.add(newMsg);
+        model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
+        model.addAttribute("doktor", doktor);
+        model.addAttribute("msgList", skrzynkaService.getAllByDoktor(doktor.getIdDoktor()));
         return "doktor";
     }
 }

@@ -1,5 +1,5 @@
 package projekt.inz.pojo;
-// Generated 2017-12-05 17:08:29 by Hibernate Tools 4.3.1
+// Generated 2017-12-08 19:01:26 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -30,7 +30,10 @@ public class Doktor  implements java.io.Serializable {
      private String login;
      private String haslo;
      private String email;
+     private Set artykuls = new HashSet(0);
      private Set wizytas = new HashSet(0);
+     private Set receptas = new HashSet(0);
+     private Set skrzynkas = new HashSet(0);
 
     public Doktor() {
     }
@@ -44,14 +47,17 @@ public class Doktor  implements java.io.Serializable {
         this.haslo = haslo;
         this.email = email;
     }
-    public Doktor(String imie, String nazwisko, String specjalnosc, String login, String haslo, String email, Set wizytas) {
+    public Doktor(String imie, String nazwisko, String specjalnosc, String login, String haslo, String email, Set artykuls, Set wizytas, Set receptas, Set skrzynkas) {
        this.imie = imie;
        this.nazwisko = nazwisko;
        this.specjalnosc = specjalnosc;
        this.login = login;
        this.haslo = haslo;
        this.email = email;
+       this.artykuls = artykuls;
        this.wizytas = wizytas;
+       this.receptas = receptas;
+       this.skrzynkas = skrzynkas;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -127,12 +133,39 @@ public class Doktor  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="doktor")
+    public Set getArtykuls() {
+        return this.artykuls;
+    }
+    
+    public void setArtykuls(Set artykuls) {
+        this.artykuls = artykuls;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="doktor")
     public Set getWizytas() {
         return this.wizytas;
     }
     
     public void setWizytas(Set wizytas) {
         this.wizytas = wizytas;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="doktor")
+    public Set getReceptas() {
+        return this.receptas;
+    }
+    
+    public void setReceptas(Set receptas) {
+        this.receptas = receptas;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="doktor")
+    public Set getSkrzynkas() {
+        return this.skrzynkas;
+    }
+    
+    public void setSkrzynkas(Set skrzynkas) {
+        this.skrzynkas = skrzynkas;
     }
 
 

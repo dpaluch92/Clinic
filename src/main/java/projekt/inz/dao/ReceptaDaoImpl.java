@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
-import projekt.inz.pojo.Wizyta;
+import projekt.inz.pojo.Recepta;
 import projekt.inz.util.HibernateUtil;
 
 /**
@@ -17,57 +17,48 @@ import projekt.inz.util.HibernateUtil;
  * @author depek
  */
 @Repository
-public class WizytaDaoImpl implements WizytaDao {
+public class ReceptaDaoImpl implements ReceptaDao {
 
     private Session session;
 
     @Override
-    @SuppressWarnings("unchecked")
-    public List<Wizyta> getAll() {
+    public List<Recepta> getAllByDoktor(int idDoktor) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("from Wizyta").list();
+        return session.createQuery("from Recepta where doktor=" + idDoktor).list();
     }
 
     @Override
-    public void edit(Wizyta wizyta) {
+    public void add(Recepta recepta) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.saveOrUpdate(wizyta);
+        session.save(recepta);
         session.getTransaction().commit();
     }
 
     @Override
-    public void add(Wizyta wizyta) {
+    public void edit(Recepta recepta) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(wizyta);
+        session.saveOrUpdate(recepta);
         session.getTransaction().commit();
     }
 
     @Override
-    public void delete(int idWizyty) {
+    public void delete(int idRecepty) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = session.beginTransaction();
-        session.delete(getWizyta(idWizyty));
+        session.delete(getRecepta(idRecepty));
         trans.commit();
     }
 
     @Override
-    public Wizyta getWizyta(int idWizyty) {
-        Wizyta n;
+    public Recepta getRecepta(int idRecepty) {
+        Recepta n;
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        n = (Wizyta) session.get(Wizyta.class, idWizyty);
+        n = (Recepta) session.get(Recepta.class, idRecepty);
         return n;
-    }
-    
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Wizyta> getWizytaByIdDoktor(int idDoktora) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        return session.createQuery("from Wizyta where doktor="+idDoktora).list();
     }
 
 }
