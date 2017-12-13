@@ -13,6 +13,7 @@ import projekt.inz.pojo.Admin;
  * @author depek
  */
 public interface AdminDao {
+
     List<Admin> getAll();
 
     Admin getAdmin(String login);

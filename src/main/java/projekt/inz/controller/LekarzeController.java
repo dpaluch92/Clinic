@@ -18,16 +18,18 @@ import projekt.inz.service.DoktorService;
  */
 @Controller
 public class LekarzeController {
+
     @Autowired
     DoktorService doktorService;
-    
+
     @RequestMapping("/lekarze")
     public String HelloWorld(Map<String, Object> map) {
-        Doktor doktor = new Doktor();
         
+        Doktor doktor = new Doktor();
+
         map.put("doktor", doktor);
         map.put("doktorList", doktorService.getAll());
-        
+
         return "lekarze";
     }
 }

@@ -33,10 +33,10 @@ public class LoginController {
 
     @Autowired
     DoktorService doktorService;
-    
+
     @Autowired
     AdminService adminService;
-    
+
     @Autowired
     RejestracjaService rejestracjaService;
 
@@ -47,9 +47,9 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@RequestParam String login, @RequestParam String haslo, HttpSession session, Model model) {
-        
-        Pacjent pacjent = pacjentService.loginPacjent(login,haslo);
-        Doktor doktor = doktorService.loginDoktor(login,haslo);
+
+        Pacjent pacjent = pacjentService.loginPacjent(login, haslo);
+        Doktor doktor = doktorService.loginDoktor(login, haslo);
         Admin admin = adminService.loginAdmin(login, haslo);
         Rejestracja rejestracja = rejestracjaService.loginRejestracja(login, haslo);
 
@@ -70,13 +70,15 @@ public class LoginController {
         model.addAttribute("loginError", "Error logging in");
         return "login";
     }
-    
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
+
         session.removeAttribute("loggedInPacjent");
         session.removeAttribute("loggedInDoktor");
         session.removeAttribute("loggedInAdmin");
         session.removeAttribute("loggedInRejestracja");
+
         return "login";
     }
 

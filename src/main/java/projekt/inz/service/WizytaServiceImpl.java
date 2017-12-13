@@ -15,7 +15,6 @@ import projekt.inz.pojo.Wizyta;
  *
  * @author depek
  */
-
 @Service("wizytaService")
 public class WizytaServiceImpl implements WizytaService {
 

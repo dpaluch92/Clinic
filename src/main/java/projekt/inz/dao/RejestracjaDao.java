@@ -13,11 +13,12 @@ import projekt.inz.pojo.Rejestracja;
  * @author depek
  */
 public interface RejestracjaDao {
+
     Rejestracja getRejestracja(String login);
-    
+
     List<Rejestracja> getAll();
-    
-    void add(Rejestracja rejestracja );
+
+    void add(Rejestracja rejestracja);
 
     void edit(Rejestracja rejestracja);
 

@@ -18,12 +18,13 @@ import projekt.inz.service.UslugiService;
  */
 @Controller
 public class ServiceController {
-    
+
     @Autowired
     private UslugiService uslugiService;
 
     @RequestMapping("/cennik")
     public String mainMethod(Map<String, Object> map) {
+
         Uslugi uslugi = new Uslugi();
 
         map.put("uslugi", uslugi);
@@ -31,5 +32,5 @@ public class ServiceController {
 
         return "uslugi";
     }
-    
+
 }

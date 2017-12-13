@@ -13,13 +13,14 @@ import projekt.inz.pojo.Rejestracja;
  * @author depek
  */
 public interface RejestracjaService {
+
     Rejestracja getRejestracja(String login);
-    
-    Rejestracja loginRejestracja(String login,String haslo);
-    
+
+    Rejestracja loginRejestracja(String login, String haslo);
+
     List<Rejestracja> getAll();
-    
-    void add(Rejestracja rejestracja );
+
+    void add(Rejestracja rejestracja);
 
     void edit(Rejestracja rejestracja);
 

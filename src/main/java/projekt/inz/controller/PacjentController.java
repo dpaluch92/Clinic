@@ -52,6 +52,7 @@ public class PacjentController {
 
     @InitBinder
     public void bindingPreparation(WebDataBinder binder) {
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         CustomDateEditor orderDateEditor = new CustomDateEditor(dateFormat, true);
         binder.registerCustomEditor(Date.class, orderDateEditor);
@@ -59,17 +60,20 @@ public class PacjentController {
 
     @RequestMapping(value = "/pacjent", method = RequestMethod.GET)
     public String setupForm(HttpSession session, Model model) {
-        
+
         Pacjent logged = (Pacjent) session.getAttribute("loggedInPacjent");
+
         model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
         model.addAttribute("doktorList", doktorService.getAll());
         model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAllByPacjent(logged.getIdPacjenta()));
+
         return "pacjent";
     }
 
     @RequestMapping(value = "/pacjent.e", method = RequestMethod.POST)
     public String doPacjent(@ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String actionP, Model model) {
+
         Pacjent pacjentResult = new Pacjent();
 
         switch (actionP.toLowerCase()) {
@@ -82,36 +86,43 @@ public class PacjentController {
         model.addAttribute("doktorList", doktorService.getAll());
         model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAll());
+
         return "pacjent";
     }
 
     @RequestMapping(value = "/pacjent.w", method = RequestMethod.POST)
     public String doWizyta(HttpSession session, Model model, String doktorForm, Date terminWizyty, String uslugiForm) {
-        LOG.info(terminWizyty.toString());
+
         Pacjent pacjent = (Pacjent) session.getAttribute("loggedInPacjent");
         Doktor doktor = doktorService.getDoktor(Integer.parseInt(doktorForm));
         Uslugi uslugi = uslugiService.getUslugi(Integer.parseInt(uslugiForm));
+        LOG.info(terminWizyty.toString());
 
         Wizyta wizyta = new Wizyta(doktor, pacjent, uslugi, terminWizyty);
         wizytaService.add(wizyta);
-        model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
+
         model.addAttribute("doktorList", doktorService.getAll());
         model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAll());
+        model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
+
         return "pacjent";
     }
 
     @RequestMapping(value = "/pacjent.msg", method = RequestMethod.POST)
     public String doMsg(HttpSession session, Model model, String doktorForm, String msg) {
+        
         Pacjent pacjent = (Pacjent) session.getAttribute("loggedInPacjent");
         Doktor doktor = doktorService.getDoktor(Integer.parseInt(doktorForm));
 
         Skrzynka newMsg = new Skrzynka(doktor, pacjent, msg);
         skrzynkaService.add(newMsg);
-        model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
+
         model.addAttribute("doktorList", doktorService.getAll());
         model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAll());
+        model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
+
         return "pacjent";
     }
 }

@@ -38,5 +38,4 @@ public class AdminDaoImpl implements AdminDao {
 
         return n;
     }
-
 }

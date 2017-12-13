@@ -12,7 +12,6 @@ import java.util.List;
  *
  * @author depek
  */
-
 public interface PacjentService {
 
     List<Pacjent> getAll();
@@ -24,8 +23,8 @@ public interface PacjentService {
     void delete(int idPacjenta);
 
     Pacjent getPacjent(int idPacjenta);
-    
+
     Pacjent getPacjent(String username);
-    
+
     Pacjent loginPacjent(String login, String haslo);
 }

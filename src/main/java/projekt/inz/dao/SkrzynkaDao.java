@@ -13,16 +13,16 @@ import projekt.inz.pojo.Skrzynka;
  * @author depek
  */
 public interface SkrzynkaDao {
-    
+
     void add(Skrzynka wiadomosc);
-    
+
     void delete(int idWiadomosc);
-    
+
     Skrzynka getMsg(int idWiadomosci);
-    
+
     List<Skrzynka> getAll();
-    
+
     List<Skrzynka> getAllByDoktor(int idDoktor);
-    
+
     List<Skrzynka> getAllByPacjent(int idPacjent);
 }

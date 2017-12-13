@@ -5,7 +5,6 @@
  */
 package projekt.inz.service;
 
-import java.security.NoSuchAlgorithmException;
 import projekt.inz.dao.PacjentDao;
 import projekt.inz.pojo.Pacjent;
 import java.util.List;
@@ -24,27 +23,32 @@ public class PacjentServiceImpl implements PacjentService {
     private PacjentDao pacjentDao;
 
     @Transactional
+    @Override
     public List<Pacjent> getAll() {
         return pacjentDao.getAll();
     }
 
     @Transactional
+    @Override
     public void add(Pacjent pacjent) {
         //pacjent.setHaslo(passwordEncoder.encode(pacjent.getHaslo()));
         pacjentDao.add(pacjent);
     }
 
     @Transactional
+    @Override
     public void edit(Pacjent pacjent) {
         pacjentDao.edit(pacjent);
     }
 
     @Transactional
+    @Override
     public void delete(int idPacjenta) {
         pacjentDao.delete(idPacjenta);
     }
 
     @Transactional
+    @Override
     public Pacjent getPacjent(int idPacjenta) {
         return pacjentDao.getPacjent(idPacjenta);
     }

@@ -13,13 +13,14 @@ import projekt.inz.pojo.Recepta;
  * @author depek
  */
 public interface ReceptaDao {
+
     List<Recepta> getAllByDoktor(int idDoktor);
-    
+
     void add(Recepta recepta);
-    
+
     void edit(Recepta recepta);
-    
+
     void delete(int idRecepty);
-    
+
     Recepta getRecepta(int idRecepty);
 }

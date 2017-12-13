@@ -15,7 +15,7 @@ import projekt.inz.pojo.Uslugi;
 public interface UslugiDao {
 
     List<Uslugi> getAll();
-    
+
     Uslugi getUslugi(int idUslugi);
-    
+
 }

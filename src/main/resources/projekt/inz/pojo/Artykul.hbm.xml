@@ -4,9 +4,9 @@
 <!-- Generated 2017-12-08 19:01:27 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="projekt.inz.pojo.Artykul" table="artykul" catalog="inz" optimistic-lock="version">
-        <id name="idArtykulu" type="int">
+        <id name="idArtykulu" type="java.lang.Integer">
             <column name="id_artykulu" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="doktor" class="projekt.inz.pojo.Doktor" fetch="select">
             <column name="id_doktora_fk" not-null="true" />

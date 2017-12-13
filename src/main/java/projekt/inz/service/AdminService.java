@@ -17,7 +17,7 @@ public interface AdminService {
     List<Admin> getAll();
 
     Admin getAdmin(String login);
-    
-    Admin loginAdmin(String login,String haslo);
-    
+
+    Admin loginAdmin(String login, String haslo);
+
 }

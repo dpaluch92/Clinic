@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class KontaktController {
-    
-    
+
     @RequestMapping("/kontakt")
-    public String mainKontakt(){
+    public String mainKontakt() {
         return "kontakt";
     }
 }

@@ -30,7 +30,7 @@ public class AdminServiceImpl implements AdminService {
     public Admin getAdmin(String login) {
         return adminDao.getAdmin(login);
     }
-    
+
     @Override
     public Admin loginAdmin(String login, String haslo) {
         Admin admin = this.getAdmin(login);

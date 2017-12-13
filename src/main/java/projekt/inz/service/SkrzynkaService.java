@@ -21,8 +21,8 @@ public interface SkrzynkaService {
     Skrzynka getMsg(int idWiadomosci);
 
     List<Skrzynka> getAll();
-    
+
     List<Skrzynka> getAllByPacjent(int idPacjent);
-    
+
     List<Skrzynka> getAllByDoktor(int idDoktor);
 }

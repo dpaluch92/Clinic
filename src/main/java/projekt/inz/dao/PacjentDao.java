@@ -8,12 +8,10 @@ package projekt.inz.dao;
 import projekt.inz.pojo.Pacjent;
 import java.util.List;
 
-
 /**
  *
  * @author depek
  */
-
 public interface PacjentDao {
 
     List<Pacjent> getAll();
@@ -25,7 +23,7 @@ public interface PacjentDao {
     void delete(int idPacjenta);
 
     Pacjent getPacjent(int idPacjenta);
-    
+
     Pacjent getPacjent(String username);
 
 }

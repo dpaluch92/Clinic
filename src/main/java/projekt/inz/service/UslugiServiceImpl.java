@@ -24,6 +24,7 @@ public class UslugiServiceImpl implements UslugiService {
     private UslugiDao uslugiDao;
 
     @Transactional
+    @Override
     public List<Uslugi> getAll() {
         return uslugiDao.getAll();
     }
@@ -32,6 +33,5 @@ public class UslugiServiceImpl implements UslugiService {
     public Uslugi getUslugi(int idUslugi) {
         return uslugiDao.getUslugi(idUslugi);
     }
-    
-    
+
 }

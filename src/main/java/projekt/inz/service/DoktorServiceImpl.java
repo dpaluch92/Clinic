@@ -23,11 +23,13 @@ public class DoktorServiceImpl implements DoktorService {
     private DoktorDao doktorDao;
 
     @Transactional
+    @Override
     public List<Doktor> getAll() {
         return doktorDao.getAll();
     }
 
     @Transactional
+    @Override
     public Doktor getDoktor(String login) {
         return doktorDao.getDoktor(login);
     }

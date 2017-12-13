@@ -27,7 +27,7 @@ public class UslugiDaoImpl implements UslugiDao {
         session.beginTransaction();
         return session.createQuery("from Uslugi").list();
     }
-    
+
     @Override
     public Uslugi getUslugi(int idUslugi) {
         Uslugi n;

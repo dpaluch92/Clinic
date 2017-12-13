@@ -15,7 +15,6 @@ import projekt.inz.pojo.Recepta;
  *
  * @author depek
  */
-
 @Service("receptaService")
 public class ReceptaServiceImpl implements ReceptaService {
 

@@ -27,14 +27,17 @@ public class RegisterController {
 
     @RequestMapping("/register")
     public String setupForm(Map<String, Object> map) {
+
         Pacjent pacjent = new Pacjent();
 
         map.put("pacjent", pacjent);
+
         return "register";
     }
 
     @RequestMapping("/register.do")
     public String doActions(@ModelAttribute Pacjent pacjent, BindingResult result, @RequestParam String akcja, Map<String, Object> map) {
+
         Pacjent pacjentResult = new Pacjent();
 
         switch (akcja.toLowerCase()) {
@@ -44,6 +47,7 @@ public class RegisterController {
                 break;
         }
         map.put("pacjent", pacjentResult);
+
         return "registerSuccess";
     }
 }

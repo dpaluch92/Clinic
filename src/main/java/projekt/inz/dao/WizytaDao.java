@@ -13,17 +13,17 @@ import projekt.inz.pojo.Wizyta;
  * @author depek
  */
 public interface WizytaDao {
-    
+
     List<Wizyta> getAll();
-    
+
     void edit(Wizyta wizyta);
-    
+
     void add(Wizyta wizyta);
-    
+
     void delete(int idWizyty);
-    
+
     Wizyta getWizyta(int idWizyty);
-    
+
     List<Wizyta> getWizytaByIdDoktor(int idDoktor);
-       
+
 }

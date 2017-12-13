@@ -15,11 +15,11 @@ import projekt.inz.pojo.Doktor;
 public interface DoktorService {
 
     List<Doktor> getAll();
-    
+
     Doktor getDoktor(String login);
-    
+
     Doktor loginDoktor(String login, String haslo);
-    
+
     void add(Doktor doktor);
 
     void edit(Doktor doktor);
