@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="style.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,9 +16,14 @@
     <body>     
         <%@include file="navbar.jsp" %>
 
-
+        <
         <div class="container">
-            <p>Aktualnosci</p>
+            <c:forEach items="${artList}" var="artykul">
+                <p>Data : ${artykul.dataDodania}</p>
+                <p>Tytul : ${artykul.tytul}</p>
+                <p>Opis : ${artykul.opis}</p>
+                <p>Autor : ${artykul.doktor.imie} ${artykul.doktor.nazwisko}</p>
+            </c:forEach> 
         </div>
     </body>
 </html>

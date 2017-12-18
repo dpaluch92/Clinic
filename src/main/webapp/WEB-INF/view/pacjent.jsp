@@ -43,7 +43,7 @@
                                         <td>${pacjent.imie}</td>
                                         <td>${pacjent.nazwisko}</td>
                                         <td>${pacjent.login}</td>
-                                        <td>${pacjent.haslo}</td>
+                                        <td>${decoded}</td>
                                         <td>${pacjent.email}</td>
                                         <td>${pacjent.adres}</td>
                                         <td>${pacjent.pesel}</td>

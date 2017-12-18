@@ -24,7 +24,7 @@ public class LekarzeController {
 
     @RequestMapping("/lekarze")
     public String HelloWorld(Map<String, Object> map) {
-        
+
         Doktor doktor = new Doktor();
 
         map.put("doktor", doktor);

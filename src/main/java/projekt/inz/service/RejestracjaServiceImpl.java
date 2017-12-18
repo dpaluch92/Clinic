@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projekt.inz.dao.RejestracjaDao;
 import projekt.inz.pojo.Rejestracja;
+import projekt.inz.util.PasswordCoding;
 
 /**
  *
@@ -29,7 +30,9 @@ public class RejestracjaServiceImpl implements RejestracjaService {
     @Override
     public Rejestracja loginRejestracja(String login, String haslo) {
         Rejestracja rejestracja = this.getRejestracja(login);
-        if (rejestracja != null && rejestracja.getHaslo().equals(haslo)) {
+        PasswordCoding coding = new PasswordCoding();
+        String coded = coding.encode(haslo);
+        if (rejestracja != null && rejestracja.getHaslo().equals(coded)) {
             return rejestracja;
         }
         return null;

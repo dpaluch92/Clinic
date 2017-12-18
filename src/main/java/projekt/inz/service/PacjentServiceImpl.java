@@ -11,6 +11,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import projekt.inz.util.PasswordCoding;
 
 /**
  *
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("pacjentService")
 public class PacjentServiceImpl implements PacjentService {
-
+    
     @Autowired
     private PacjentDao pacjentDao;
 
@@ -31,13 +32,16 @@ public class PacjentServiceImpl implements PacjentService {
     @Transactional
     @Override
     public void add(Pacjent pacjent) {
-        //pacjent.setHaslo(passwordEncoder.encode(pacjent.getHaslo()));
+        PasswordCoding coding = new PasswordCoding();
+        pacjent.setHaslo(coding.encode(pacjent.getHaslo()));
         pacjentDao.add(pacjent);
     }
 
     @Transactional
     @Override
     public void edit(Pacjent pacjent) {
+        PasswordCoding coding = new PasswordCoding();
+        pacjent.setHaslo(coding.encode(pacjent.getHaslo()));
         pacjentDao.edit(pacjent);
     }
 
@@ -54,6 +58,7 @@ public class PacjentServiceImpl implements PacjentService {
     }
 
     @Transactional
+    @Override
     public Pacjent getPacjent(String username) {
         return pacjentDao.getPacjent(username);
     }
@@ -61,7 +66,10 @@ public class PacjentServiceImpl implements PacjentService {
     @Override
     public Pacjent loginPacjent(String login, String haslo) {
         Pacjent pacjent = this.getPacjent(login);
-        if (pacjent != null && pacjent.getHaslo().equals(haslo)) {
+        PasswordCoding coding = new PasswordCoding();
+        String coded = coding.encode(haslo);
+        
+        if (pacjent != null && pacjent.getHaslo().equals((coded))) {
             return pacjent;
         }
         return null;

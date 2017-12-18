@@ -13,7 +13,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  *
  * @author depek
  */
-public class ContactAppDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
+public class ContactAppDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -27,9 +27,9 @@ public class ContactAppDispatcherServletInitializer extends AbstractAnnotationCo
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/","/login"};
+        return new String[]{"/", "/login"};
     }
-    
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);

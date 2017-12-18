@@ -27,6 +27,7 @@ import projekt.inz.service.PacjentService;
 import projekt.inz.service.SkrzynkaService;
 import projekt.inz.service.UslugiService;
 import projekt.inz.service.WizytaService;
+import projekt.inz.util.PasswordCoding;
 
 /**
  *
@@ -62,7 +63,9 @@ public class PacjentController {
     public String setupForm(HttpSession session, Model model) {
 
         Pacjent logged = (Pacjent) session.getAttribute("loggedInPacjent");
+        String decoded = new PasswordCoding().decode(logged.getHaslo());
 
+        model.addAttribute("decoded", decoded);
         model.addAttribute("pacjent", session.getAttribute("loggedInPacjent"));
         model.addAttribute("doktorList", doktorService.getAll());
         model.addAttribute("uslugiList", uslugiService.getAll());
@@ -111,7 +114,7 @@ public class PacjentController {
 
     @RequestMapping(value = "/pacjent.msg", method = RequestMethod.POST)
     public String doMsg(HttpSession session, Model model, String doktorForm, String msg) {
-        
+
         Pacjent pacjent = (Pacjent) session.getAttribute("loggedInPacjent");
         Doktor doktor = doktorService.getDoktor(Integer.parseInt(doktorForm));
 

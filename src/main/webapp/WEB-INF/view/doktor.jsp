@@ -25,6 +25,8 @@
                         <li><a href="#lista" data-toggle="tab">Lista Wizyt</a></li>
                         <li><a href="#nowa" data-toggle="tab">Wyślij Wiadomość</a></li>
                         <li><a href="#skrzynka" data-toggle="tab">Skrzynka Odbiorcza</a></li>
+                        <li><a href="#recepta" data-toggle="tab">Wypisz Recepte</a></li>
+                        <li><a href="#artykul" data-toggle="tab">Dodaj Artykuł</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -121,7 +123,7 @@
                                 </tbody>
                             </table>
                         </div>
-                                    <div id="nowa" class="tab-pane fade">
+                        <div id="nowa" class="tab-pane fade">
                             <form class="form-horizontal" role="form" method="POST" role="form" action="doktor.msg">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Pacjent :</label>
@@ -159,14 +161,73 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${msgList}" var="m">
-                                    <tr>
-                                        <td>${m.doktor.imie}</td>
-                                        <td>${m.pacjent.imie}</td>
-                                        <td>${m.opis}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>${m.doktor.imie}</td>
+                                            <td>${m.pacjent.imie}</td>
+                                            <td>${m.opis}</td>
+                                        </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
+                        </div>
+                        <div id="recepta" class="tab-pane fade">
+                            <form class="form-horizontal" role="form" method="POST" role="form" action="doktor.recepta">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Pacjent :</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="pacjentForm" >
+                                            <c:forEach items="${pacjentList}" var="pacjent">
+                                                <option value="${pacjent.idPacjenta}"> ${pacjent.imie} </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>    
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Recepta :</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="przepisanieRecepty" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Data Wydania :</label>
+                                    <div class="col-sm-6">
+                                        <input type="date" name="dataWydania" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <input type="submit"  value="Wydaj Recepte" class="btn btn-default pull-right"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="artykul" class="tab-pane fade">
+                            <form class="form-horizontal" role="form" method="POST" role="form" action="doktor.art">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Tytuł :</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="tytul" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Opis :</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="opis" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Data Dodania :</label>
+                                    <div class="col-sm-6">
+                                        <input type="date" name="dataDodania" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <input type="submit"  value="Dodaj Artykul" class="btn btn-default pull-right"/>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
