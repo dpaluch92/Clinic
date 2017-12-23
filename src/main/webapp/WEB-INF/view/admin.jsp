@@ -10,10 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Administrator</title>
         <%@include file="style.jsp" %>
+        <%@include file="adminTabManagment.jsp" %>
     </head>
-    <body>
+    <body onload="myFunction()">
 
         <%@include file="navbar.jsp" %>
 
@@ -21,15 +22,15 @@
             <div class="row">
                 <div class="col-sm-3">
                     <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
-                        <li class="active"><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
-                        <li><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
-                        <li><a href="#doktor" data-toggle="tab">Zarządzaj Lekarzami</a></li>
-                        <li><a href="#rejestracja" data-toggle="tab">Zarządzaj Rejestracją</a></li>
+                        <li id="prof"><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
+                        <li id="pacj"><a href="#pacjent" data-toggle="tab">Zarządzaj Pacjentem</a></li>
+                        <li id="dokt"><a href="#doktor" data-toggle="tab">Zarządzaj Lekarzami</a></li>
+                        <li id="rej"><a href="#rejestracja" data-toggle="tab">Zarządzaj Rejestracją</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
                     <div id="my-tab-content" class="tab-content">
-                        <div id="profil" class="tab-pane fade in active">
+                        <div id="profil" class="tab-pane fade">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>

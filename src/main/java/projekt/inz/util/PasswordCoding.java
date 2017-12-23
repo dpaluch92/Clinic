@@ -23,7 +23,6 @@ public class PasswordCoding {
 
     public String decode(String codedPassword) {
         this.encodedBytes = codedPassword.getBytes();
-        String n = new String(encodedBytes);
         this.decodedBytes = Base64.getDecoder().decode(encodedBytes);
         return new String(decodedBytes);
     }

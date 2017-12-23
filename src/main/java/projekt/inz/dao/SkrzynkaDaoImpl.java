@@ -47,6 +47,7 @@ public class SkrzynkaDaoImpl implements SkrzynkaDao {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Skrzynka> getAll() {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

@@ -16,7 +16,7 @@
     <body>     
         <%@include file="navbar.jsp" %>
 
-        <
+
         <div class="container">
             <c:forEach items="${artList}" var="artykul">
                 <p>Data : ${artykul.dataDodania}</p>

@@ -26,7 +26,9 @@ public class KartaPacjentaDaoImpl implements KartaPacjentaDao {
     public List<KartaPacjenta> getAll() {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("from KartaPacjenta").list();
+        List<KartaPacjenta> n = session.createQuery("from KartaPacjenta").list();
+        session.close();
+        return n;
     }
 
     @Override
@@ -35,6 +37,7 @@ public class KartaPacjentaDaoImpl implements KartaPacjentaDao {
         session.beginTransaction();
         session.save(kartaPacjenta);
         session.getTransaction().commit();
+        session.close();
     }
 
     @Override
@@ -43,6 +46,7 @@ public class KartaPacjentaDaoImpl implements KartaPacjentaDao {
         session.beginTransaction();
         session.saveOrUpdate(kartaPacjenta);
         session.getTransaction().commit();
+        session.close();
     }
 
     @Override
@@ -51,6 +55,7 @@ public class KartaPacjentaDaoImpl implements KartaPacjentaDao {
         Transaction trans = session.beginTransaction();
         session.delete(getKartaPacjenta(idKartaPacjenta));
         trans.commit();
+        session.close();
     }
 
     @Override
@@ -59,6 +64,7 @@ public class KartaPacjentaDaoImpl implements KartaPacjentaDao {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         n = (KartaPacjenta) session.get(KartaPacjenta.class, idKartaPacjenta);
+        session.close();
         return n;
     }
 

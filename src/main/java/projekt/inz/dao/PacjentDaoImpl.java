@@ -27,7 +27,10 @@ public class PacjentDaoImpl implements PacjentDao {
     public List<Pacjent> getAll() {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("from Pacjent").list();
+        List<Pacjent> n = session.createQuery("from Pacjent").list();
+        session.close();
+        return n;
+
     }
 
     @Override
@@ -36,6 +39,7 @@ public class PacjentDaoImpl implements PacjentDao {
         session.beginTransaction();
         session.save(pacjent);
         session.getTransaction().commit();
+        session.close();
     }
 
     @Override
@@ -44,6 +48,7 @@ public class PacjentDaoImpl implements PacjentDao {
         session.beginTransaction();
         session.saveOrUpdate(pacjent);
         session.getTransaction().commit();
+        session.close();
     }
 
     @Override
@@ -52,6 +57,7 @@ public class PacjentDaoImpl implements PacjentDao {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         n = (Pacjent) session.get(Pacjent.class, idPacjenta);
+        session.close();
         return n;
     }
 
@@ -62,15 +68,17 @@ public class PacjentDaoImpl implements PacjentDao {
         session.beginTransaction();
         n = (Pacjent) session.createCriteria(Pacjent.class, "pacjent")
                 .add(Restrictions.eq("pacjent.login", login)).uniqueResult();
-
+        session.close();
         return n;
     }
 
     @Override
-    public void delete(int idPacjenta) {
+    public void delete(int idPacjenta) {  
+        Pacjent n = getPacjent(idPacjenta);
         session = HibernateUtil.getSessionFactory().openSession();
-        Transaction trans = session.beginTransaction();
-        session.delete(getPacjent(idPacjenta));
-        trans.commit();
+        session.beginTransaction();
+        session.delete(n);
+        session.getTransaction().commit();
+        session.close();
     }
 }

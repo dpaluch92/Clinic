@@ -19,7 +19,7 @@ import projekt.inz.util.PasswordCoding;
  */
 @Service("pacjentService")
 public class PacjentServiceImpl implements PacjentService {
-    
+
     @Autowired
     private PacjentDao pacjentDao;
 
@@ -68,7 +68,7 @@ public class PacjentServiceImpl implements PacjentService {
         Pacjent pacjent = this.getPacjent(login);
         PasswordCoding coding = new PasswordCoding();
         String coded = coding.encode(haslo);
-        
+
         if (pacjent != null && pacjent.getHaslo().equals((coded))) {
             return pacjent;
         }

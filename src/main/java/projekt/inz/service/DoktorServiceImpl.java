@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projekt.inz.dao.DoktorDao;
 import projekt.inz.pojo.Doktor;
+import projekt.inz.util.PasswordCoding;
 
 /**
  *
@@ -37,7 +38,10 @@ public class DoktorServiceImpl implements DoktorService {
     @Override
     public Doktor loginDoktor(String login, String haslo) {
         Doktor doktor = this.getDoktor(login);
-        if (doktor != null && doktor.getHaslo().equals(haslo)) {
+        PasswordCoding coding = new PasswordCoding();
+        String coded = coding.encode(haslo);
+
+        if (doktor != null && doktor.getHaslo().equals(coded)) {
             return doktor;
         }
         return null;
@@ -45,11 +49,15 @@ public class DoktorServiceImpl implements DoktorService {
 
     @Override
     public void add(Doktor doktor) {
+        PasswordCoding coding = new PasswordCoding();
+        doktor.setHaslo(coding.encode(doktor.getHaslo()));
         doktorDao.add(doktor);
     }
 
     @Override
     public void edit(Doktor doktor) {
+        PasswordCoding coding = new PasswordCoding();
+        doktor.setHaslo(coding.encode(doktor.getHaslo()));
         doktorDao.edit(doktor);
     }
 

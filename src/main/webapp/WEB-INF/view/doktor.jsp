@@ -27,6 +27,7 @@
                         <li><a href="#skrzynka" data-toggle="tab">Skrzynka Odbiorcza</a></li>
                         <li><a href="#recepta" data-toggle="tab">Wypisz Recepte</a></li>
                         <li><a href="#artykul" data-toggle="tab">Dodaj Artykuł</a></li>
+                        <li><a href="#karta" data-toggle="tab">Karta Pacjenta</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -48,7 +49,7 @@
                                         <td>${doktor.imie}</td>
                                         <td>${doktor.nazwisko}</td>
                                         <td>${doktor.login}</td>
-                                        <td>${doktor.haslo}</td>
+                                        <td>${decoded}</td>
                                         <td>${doktor.email}</td>
                                         <td>${doktor.specjalnosc}</td>
                                     </tr>
@@ -79,7 +80,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Hasło :</label>
                                     <div class="col-sm-6">
-                                        <f:input class="form-control" path="haslo" />
+                                        <f:input class="form-control" path="haslo" value="${decoded}" />
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -225,6 +226,52 @@
                                 <div class="row">
                                     <div class="col-sm-9">
                                         <input type="submit"  value="Dodaj Artykul" class="btn btn-default pull-right"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="karta" class="tab-pane fade">
+                            <form class="form-horizontal" role="form" method="POST" role="form" action="doktor.karta">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Pacjent :</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="pacjentForm" >
+                                            <c:forEach items="${pacjentList}" var="pacjent">
+                                                <option value="${pacjent.idPacjenta}"> ${pacjent.imie} </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>  
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Termin Wizyty :</label>
+                                    <div class="col-sm-6">
+                                        <input type="date" name="terminWizyty" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Usługi :</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="uslugiForm" >
+                                            <c:forEach items="${uslugiList}" var="uslugi">
+                                                <option value="${uslugi.idUslugi}"> ${uslugi.opis} , ${uslugi.cena} </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Historia Choroby :</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="historiaChoroby" class="form-control" />
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <input type="submit"  value="Dodaj do karty pacjenta" class="btn btn-default pull-right"/>
                                     </div>
                                 </div>
                             </form>

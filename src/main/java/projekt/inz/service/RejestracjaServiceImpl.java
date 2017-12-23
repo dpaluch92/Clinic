@@ -32,6 +32,7 @@ public class RejestracjaServiceImpl implements RejestracjaService {
         Rejestracja rejestracja = this.getRejestracja(login);
         PasswordCoding coding = new PasswordCoding();
         String coded = coding.encode(haslo);
+
         if (rejestracja != null && rejestracja.getHaslo().equals(coded)) {
             return rejestracja;
         }
@@ -45,11 +46,15 @@ public class RejestracjaServiceImpl implements RejestracjaService {
 
     @Override
     public void add(Rejestracja rejestracja) {
+        PasswordCoding coding = new PasswordCoding();
+        rejestracja.setHaslo(coding.encode(rejestracja.getHaslo()));
         rejestracjaDao.add(rejestracja);
     }
 
     @Override
     public void edit(Rejestracja rejestracja) {
+        PasswordCoding coding = new PasswordCoding();
+        rejestracja.setHaslo(coding.encode(rejestracja.getHaslo()));
         rejestracjaDao.edit(rejestracja);
     }
 

@@ -22,6 +22,7 @@ public class ReceptaDaoImpl implements ReceptaDao {
     private Session session;
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Recepta> getAllByDoktor(int idDoktor) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

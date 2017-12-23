@@ -38,6 +38,7 @@ import projekt.inz.service.SkrzynkaService;
 import projekt.inz.service.UslugiService;
 import projekt.inz.service.WizytaService;
 import projekt.inz.util.ExportToPdf;
+import projekt.inz.util.PasswordCoding;
 
 /**
  *
@@ -82,9 +83,12 @@ public class DoktorController {
     public String logged(HttpSession session, Model model) {
 
         Doktor doktor = (Doktor) session.getAttribute("loggedInDoktor");
+        String decoded = new PasswordCoding().decode(doktor.getHaslo());
 
+        model.addAttribute("decoded", decoded);
         model.addAttribute("doktor", doktor);
         model.addAttribute("pacjentList", pacjentService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAllByDoktor(doktor.getIdDoktor()));
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
 
@@ -104,6 +108,7 @@ public class DoktorController {
         }
         model.addAttribute("doktor", doktorResult);
         model.addAttribute("pacjentList", pacjentService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAllByDoktor(doktor.getIdDoktor()));
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
 
@@ -121,6 +126,7 @@ public class DoktorController {
 
         model.addAttribute("doktor", doktor);
         model.addAttribute("pacjentList", pacjentService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAllByDoktor(doktor.getIdDoktor()));
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
 
@@ -142,6 +148,7 @@ public class DoktorController {
 
         model.addAttribute("doktor", doktor);
         model.addAttribute("pacjentList", pacjentService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAllByDoktor(doktor.getIdDoktor()));
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
 
@@ -164,6 +171,7 @@ public class DoktorController {
 
         model.addAttribute("doktor", doktor);
         model.addAttribute("pacjentList", pacjentService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAllByDoktor(doktor.getIdDoktor()));
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
 
@@ -181,6 +189,7 @@ public class DoktorController {
 
         model.addAttribute("doktor", doktor);
         model.addAttribute("pacjentList", pacjentService.getAll());
+        model.addAttribute("uslugiList", uslugiService.getAll());
         model.addAttribute("msgList", skrzynkaService.getAllByDoktor(doktor.getIdDoktor()));
         model.addAttribute("wizytaList", wizytaService.getWizytaByIdDoktor(doktor.getIdDoktor()));
 

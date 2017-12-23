@@ -6,7 +6,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>pacjent</title>
+
+
+        <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <%@include file="style.jsp" %>
+        <script src="//code.jquery.com/jquery.min.js"></script>
+        <%@include file="calendar7js.jsp" %>
     </head>
     <body>
 
@@ -128,8 +134,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Termin Wizyty :</label>
                                     <div class="col-sm-6">
-                                        <input type="date" name="terminWizyty" class="form-control" />
+                                        <input name="terminWizyty" class="calendar7 form-control" />
                                     </div>
+                                    <script>
+                                        jQuery('.calendar7').Calendar7({
+                                            allowTimeStart: '1:00',
+                                            allowTimeEnd: '22:00'
+                                        });
+                                    </script>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-9">
@@ -176,11 +188,11 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${msgList}" var="m">
-                                    <tr>
-                                        <td>${m.pacjent.imie}</td>
-                                        <td>${m.doktor.imie}</td>
-                                        <td>${m.opis}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>${m.pacjent.imie}</td>
+                                            <td>${m.doktor.imie}</td>
+                                            <td>${m.opis}</td>
+                                        </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
