@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-    <schema-selection match-catalog="inz"/>
-    <table-filter match-name="doktor"/>
-    <table-filter match-name="artykul"/>
-    <table-filter match-name="wizyta"/>
-    <table-filter match-name="admin"/>
-    <table-filter match-name="skrzynka"/>
-    <table-filter match-name="recepta"/>
-    <table-filter match-name="uslugi"/>
-    <table-filter match-name="pacjent"/>
-    <table-filter match-name="rejestracja"/>
-    <table-filter match-name="karta_pacjenta"/>
+  <schema-selection match-catalog="inz"/>
+  <table-filter match-name="doktor"/>
+  <table-filter match-name="karta_pacjenta"/>
+  <table-filter match-name="uslugi"/>
+  <table-filter match-name="skrzynka"/>
+  <table-filter match-name="artykul"/>
+  <table-filter match-name="rejestracja"/>
+  <table-filter match-name="admin"/>
+  <table-filter match-name="pacjent"/>
+  <table-filter match-name="wizyta"/>
+  <table-filter match-name="recepta"/>
 </hibernate-reverse-engineering>

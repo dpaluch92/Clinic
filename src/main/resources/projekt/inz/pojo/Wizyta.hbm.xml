@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-12-21 17:34:24 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-01-05 19:10:38 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="projekt.inz.pojo.Wizyta" table="wizyta" catalog="inz" optimistic-lock="version">
         <id name="idWizyty" type="java.lang.Integer">
@@ -28,7 +28,7 @@
         </set>
         <set name="kartaPacjentas" table="karta_pacjenta" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_wizyty_fk" not-null="true" />
+                <column name="id_wyzyty_fk" not-null="true" />
             </key>
             <one-to-many class="projekt.inz.pojo.KartaPacjenta" />
         </set>

@@ -11,28 +11,28 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <%@include file="style.jsp" %>
+        <%@include file="doktorTabManagment.jsp" %>
     </head>
-    <body>
+    <body onload="myFunction()">
         <%@include file="navbar.jsp" %>
-
 
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
                     <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
-                        <li class="active"><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
-                        <li><a href="#edytuj" data-toggle="tab">Edytuj Profil</a></li>
-                        <li><a href="#lista" data-toggle="tab">Lista Wizyt</a></li>
-                        <li><a href="#nowa" data-toggle="tab">Wyślij Wiadomość</a></li>
-                        <li><a href="#skrzynka" data-toggle="tab">Skrzynka Odbiorcza</a></li>
-                        <li><a href="#recepta" data-toggle="tab">Wypisz Recepte</a></li>
-                        <li><a href="#artykul" data-toggle="tab">Dodaj Artykuł</a></li>
-                        <li><a href="#karta" data-toggle="tab">Karta Pacjenta</a></li>
+                        <li id="prof" ><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
+                        <li id="edit"><a href="#edytuj" data-toggle="tab">Edytuj Profil</a></li>
+                        <li id="list"><a href="#lista" data-toggle="tab">Lista Wizyt</a></li>
+                        <li id="new"><a href="#nowa" data-toggle="tab">Wyślij Wiadomość</a></li>
+                        <li id="box"><a href="#skrzynka" data-toggle="tab">Skrzynka Odbiorcza</a></li>
+                        <li id="recept"><a href="#recepta" data-toggle="tab">Wypisz Recepte</a></li>
+                        <li id="arty"><a href="#artykul" data-toggle="tab">Dodaj Artykuł</a></li>
+                        <li id="card"><a href="#karta" data-toggle="tab">Karta Pacjenta</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
                     <div id="my-tab-content" class="tab-content">
-                        <div id="profil" class="tab-pane fade in active">
+                        <div id="profil" class="tab-pane fade">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>

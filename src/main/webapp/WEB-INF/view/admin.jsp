@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Administrator</title>
         <%@include file="style.jsp" %>
-        <%@include file="adminTabManagment.jsp" %>
+        <%-- <%@include file="adminTabManagment.jsp" %> --%>
     </head>
     <body onload="myFunction()">
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-12-21 17:34:24 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-01-05 19:10:38 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="projekt.inz.pojo.KartaPacjenta" table="karta_pacjenta" catalog="inz" optimistic-lock="version">
         <id name="idKartyPacjenta" type="java.lang.Integer">
@@ -12,7 +12,7 @@
             <column name="id_pacjenta_fk" not-null="true" />
         </many-to-one>
         <many-to-one name="wizyta" class="projekt.inz.pojo.Wizyta" fetch="select">
-            <column name="id_wizyty_fk" not-null="true" />
+            <column name="id_wyzyty_fk" not-null="true" />
         </many-to-one>
         <property name="historiaChoroby" type="string">
             <column name="historia_choroby" length="30" not-null="true" />
