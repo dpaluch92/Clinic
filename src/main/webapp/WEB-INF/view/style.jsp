@@ -21,7 +21,7 @@
             body, html{
                 height: 100%;
                 background-repeat: no-repeat !important;
-                background-color: #d3d3d3 !important;
+                background-color: #e6e6e6 !important;
                 font-family: 'Oxygen', sans-serif;
             }
 

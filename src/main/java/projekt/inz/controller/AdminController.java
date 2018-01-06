@@ -39,15 +39,21 @@ public class AdminController {
 
     @RequestMapping("/admin")
     public String loggedAdmin(HttpSession session, Map<String, Object> map) {
-
-        map.put("pacjent", new Pacjent());
-        map.put("pacjentList", pacjentService.getAll());
         map.put("admin", session.getAttribute("loggedInAdmin"));
-        map.put("doktor", new Doktor());
+
+        Doktor doktor = new Doktor();
+        Pacjent pacjent = new Pacjent();
+        Rejestracja rejestracja = new Rejestracja();
+
+        map.put("pacjent", pacjent);
+        map.put("pacjentList", pacjentService.getAll());
+
+        map.put("doktor", doktor);
         map.put("doktorList", doktorService.getAll());
 
-        map.put("rejestracja", new Rejestracja());
+        map.put("rejestracja", rejestracja);
         map.put("rejestracjaList", rejestracjaService.getAll());
+
         return "admin";
     }
 
@@ -73,13 +79,16 @@ public class AdminController {
                 pacjentResult = searchedPacjent != null ? searchedPacjent : new Pacjent();
                 break;
         }
+        Doktor doktor = new Doktor();
+        Rejestracja rejestracja = new Rejestracja();
+        map.put("admin", session.getAttribute("loggedInAdmin"));
         map.put("pacjent", pacjentResult);
         map.put("pacjentList", pacjentService.getAll());
-        map.put("admin", session.getAttribute("loggedInAdmin"));
-        map.put("doktor", new Doktor());
+
+        map.put("doktor", doktor);
         map.put("doktorList", doktorService.getAll());
 
-        map.put("rejestracja", new Rejestracja());
+        map.put("rejestracja", rejestracja);
         map.put("rejestracjaList", rejestracjaService.getAll());
 
         return "admin";
@@ -107,19 +116,24 @@ public class AdminController {
                 doktorResult = searchedDoktor != null ? searchedDoktor : new Doktor();
                 break;
         }
-        map.put("pacjent", new Pacjent());
-        map.put("pacjentList", pacjentService.getAll());
+        Pacjent pacjent = new Pacjent();
+        Rejestracja rejestracja = new Rejestracja();
         map.put("admin", session.getAttribute("loggedInAdmin"));
+        map.put("pacjent", pacjent);
+        map.put("pacjentList", pacjentService.getAll());
+
         map.put("doktor", doktorResult);
         map.put("doktorList", doktorService.getAll());
 
-        map.put("rejestracja", new Rejestracja());
+        map.put("rejestracja", rejestracja);
         map.put("rejestracjaList", rejestracjaService.getAll());
+
         return "admin";
     }
 
     @RequestMapping(value = "/admin.r", method = RequestMethod.POST)
     public String doRejestracja(HttpSession session, @ModelAttribute Rejestracja rejestracja, BindingResult result, @RequestParam String actionR, Map<String, Object> map) {
+        map.put("admin", session.getAttribute("loggedInAdmin"));
         Rejestracja rejestracjaResult = new Rejestracja();
 
         switch (actionR.toLowerCase()) {
@@ -140,14 +154,18 @@ public class AdminController {
                 rejestracjaResult = searchedRejestracja != null ? searchedRejestracja : new Rejestracja();
                 break;
         }
-        map.put("pacjent", new Pacjent());
+        Doktor doktor = new Doktor();
+        Pacjent pacjent = new Pacjent();
+
+        map.put("pacjent", pacjent);
         map.put("pacjentList", pacjentService.getAll());
-        map.put("admin", session.getAttribute("loggedInAdmin"));
-        map.put("doktor", new Doktor());
+
+        map.put("doktor", doktor);
         map.put("doktorList", doktorService.getAll());
 
         map.put("rejestracja", rejestracjaResult);
         map.put("rejestracjaList", rejestracjaService.getAll());
+
         return "admin";
     }
 }

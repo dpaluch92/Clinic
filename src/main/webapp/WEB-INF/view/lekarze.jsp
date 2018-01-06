@@ -17,28 +17,31 @@
         <%@include file="navbar.jsp" %>
 
         <div class="container">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th><h3 class="title">Imię</h3></th>
-                        <th><h3 class="title">Naziwsko</h3></th>
-                        <th><h3 class="title">Specjalność</h3></th>
-                        <th><h3 class="title">Email</h3></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${doktorList}" var="doktor">
-                        <tr>
-                            <td>${doktor.imie}</td>
-                            <td>${doktor.nazwisko}</td>
-                            <td>${doktor.specjalnosc}</td>
-                            <td>${doktor.email}</td>
-                            <td><button>Zamów wizytę</button></td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-8">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th><h3 class="title">Imię</h3></th>
+                                <th><h3 class="title">Naziwsko</h3></th>
+                                <th><h3 class="title">Specjalność</h3></th>
+                                <th><h3 class="title">Email</h3></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${doktorList}" var="doktor">
+                                <tr>
+                                    <td>${doktor.imie}</td>
+                                    <td>${doktor.nazwisko}</td>
+                                    <td>${doktor.specjalnosc}</td>
+                                    <td>${doktor.email}</td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>

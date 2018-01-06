@@ -54,7 +54,7 @@ public class PacjentController {
     @InitBinder
     public void bindingPreparation(WebDataBinder binder) {
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         CustomDateEditor orderDateEditor = new CustomDateEditor(dateFormat, true);
         binder.registerCustomEditor(Date.class, orderDateEditor);
     }

@@ -16,24 +16,26 @@
         <%@include file="navbar.jsp" %>
 
         <div class="container">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th><h3 class="title">Id</h3></th>
-                        <th><h3 class="title">Opis</h3></th>
-                        <th><h3 class="title">Cena</h3></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${uslugiList}" var="uslugi">
-                        <tr>
-                            <td>${uslugi.idUslugi}</td>
-                            <td>${uslugi.opis}</td>
-                            <td>${uslugi.cena}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-8">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th><h3 class="title">Opis Usługi</h3></th>
+                                <th><h3 class="title">Cena Badania</h3></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${uslugiList}" var="uslugi">
+                                <tr>
+                                    <td>${uslugi.opis}</td>
+                                    <td>${uslugi.cena}</td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>

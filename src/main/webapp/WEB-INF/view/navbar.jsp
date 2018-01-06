@@ -16,7 +16,7 @@
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li><a href="index">Aktualności</a></li>
+                    <li><a href="/inz/">Aktualności</a></li>
                     <li><a href="terminy">Wizyta</a></li>
                     <li><a href="lekarze">Lekarze</a></li>
                     <li><a href="cennik">Cennik</a></li>

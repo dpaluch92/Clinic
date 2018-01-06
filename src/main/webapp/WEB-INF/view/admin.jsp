@@ -14,7 +14,7 @@
         <%@include file="style.jsp" %>
         <%-- <%@include file="adminTabManagment.jsp" %> --%>
     </head>
-    <body onload="myFunction()">
+    <body>
 
         <%@include file="navbar.jsp" %>
 
@@ -78,7 +78,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Hasło Pacjenta :</label>
                                     <div class="col-sm-6">
-                                        <f:input class="form-control" path="haslo" />
+                                        <f:input class="form-control" path="haslo"  />
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -212,9 +212,9 @@
                                             <td>${doktor.idDoktor}</td>
                                             <td>${doktor.imie}</td>
                                             <td>${doktor.nazwisko}</td>
-                                            <td>${doktor.login}</td>
-                                            <td>${doktor.specjalnosc}</td>
+                                            <td>${doktor.login}</td> 
                                             <td>${doktor.haslo}</td>
+                                            <td>${doktor.specjalnosc}</td>
                                             <td>${doktor.email}</td>
                                         </tr>
                                     </c:forEach>
@@ -251,6 +251,7 @@
                                     <label class="col-sm-3 col-form-label">Hasło Rejestracji :</label>
                                     <div class="col-sm-6">
                                         <f:input class="form-control" path="haslo" />
+                                            
                                     </div>
                                 </div>
                                 <div class="row">

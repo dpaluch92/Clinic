@@ -26,4 +26,10 @@ public class MainController {
         model.addAttribute("artList", artykulService.getAll());
         return "index";
     }
+
+    @RequestMapping(value = "/terminy")
+    public String doTerminy(Model model) {
+
+        return "terminy";
+    }
 }

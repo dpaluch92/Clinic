@@ -16,13 +16,16 @@
     <body>     
         <%@include file="navbar.jsp" %>
 
-
+        <br />
         <div class="container">
             <c:forEach items="${artList}" var="artykul">
-                <p>Data : ${artykul.dataDodania}</p>
-                <p>Tytul : ${artykul.tytul}</p>
-                <p>Opis : ${artykul.opis}</p>
-                <p>Autor : ${artykul.doktor.imie} ${artykul.doktor.nazwisko}</p>
+                <p style="font-size: medium;">Data : ${artykul.dataDodania}</p>
+                <h1>Tytuł : ${artykul.tytul}</h1>
+                <p><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${artykul.opis}</p>
+                <br />
+                <p class="pull-right" style="font-size: small;">Autor : ${artykul.doktor.imie} ${artykul.doktor.nazwisko}</p>
+                <br />
+                <br />
             </c:forEach> 
         </div>
     </body>
