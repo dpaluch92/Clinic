@@ -17,7 +17,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 col-md-offset-2">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -29,7 +29,7 @@
                             <c:forEach items="${uslugiList}" var="uslugi">
                                 <tr>
                                     <td>${uslugi.opis}</td>
-                                    <td>${uslugi.cena}</td>
+                                    <td>${uslugi.cena} złotych</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

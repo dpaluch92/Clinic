@@ -12,9 +12,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Administrator</title>
         <%@include file="style.jsp" %>
-        <%-- <%@include file="adminTabManagment.jsp" %> --%>
+        <%@include file="adminTabManagment.jsp" %>
     </head>
-    <body>
+    <body onload="myFunction()">
 
         <%@include file="navbar.jsp" %>
 
@@ -34,14 +34,12 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Username</th>
                                         <th>Password</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>${admin.idAdmina}</td>
                                         <td>${admin.login}</td>
                                         <td>${admin.haslo}</td>
                                     </tr>
@@ -201,8 +199,8 @@
                                         <th>Imie</th>
                                         <th>Nazwisko</th>
                                         <th>Username</th>
-                                        <th>Specjalnosc</th>
                                         <th>Password</th>
+                                        <th>Specjalnosc</th>
                                         <th>Email</th>
                                     </tr>
                                 </thead>
@@ -251,7 +249,7 @@
                                     <label class="col-sm-3 col-form-label">Hasło Rejestracji :</label>
                                     <div class="col-sm-6">
                                         <f:input class="form-control" path="haslo" />
-                                            
+
                                     </div>
                                 </div>
                                 <div class="row">

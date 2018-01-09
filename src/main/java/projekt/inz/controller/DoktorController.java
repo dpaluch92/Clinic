@@ -144,7 +144,7 @@ public class DoktorController {
         receptaDao.add(recepta);
 
         ExportToPdf toPdf = new ExportToPdf();
-        toPdf.export();
+        toPdf.export(doktor, pacjent, przepisanieRecepty, dataWydania);
 
         model.addAttribute("doktor", doktor);
         model.addAttribute("pacjentList", pacjentService.getAll());

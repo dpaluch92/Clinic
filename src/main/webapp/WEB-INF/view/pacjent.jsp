@@ -5,16 +5,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>pacjent</title>
-
-
+        <title>Panel Pacjenta</title>
         <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <%@include file="style.jsp" %>
         <script src="//code.jquery.com/jquery.min.js"></script>
         <%@include file="calendar7js.jsp" %>
+        <%@include file="pacjentTabManagment.jsp" %>
     </head>
-    <body>
+    <body onload="myFunction()">
 
         <%@include file="navbar.jsp" %>
 
@@ -22,7 +21,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <ul id="tabs" class="nav nav-pills nav-stacked well well-sm" data-tabs="tabs">
-                        <li class="active"><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
+                        <li><a href="#profil" data-toggle="tab">Wyświetl Profil</a></li>
                         <li><a href="#edytuj" data-toggle="tab">Edytuj Profil</a></li>
                         <li><a href="#wizyta" data-toggle="tab">Zamów Wizytę</a></li>
                         <li><a href="#nowa" data-toggle="tab">Wyślij Wiadomość</a></li>

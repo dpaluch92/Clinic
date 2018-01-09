@@ -16,38 +16,40 @@
         <%@include file="navbar.jsp" %>
 
 
-        <div class="row">
-            <div class="col-md-8" style="margin-left: 400px;">
-                <div class="row">
-                    <div class="col-md-4 well well-lg">
-                        <h1>Formularz logowania</h1>
-                        <br />
-                        ${loginError}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 well well-lg">
+                            <h1>Formularz logowania</h1>
+                            <br />
 
-                        <form class="form-horizontal" action="login" method="post">
-                            <div class="form-group">
-                                <label class="cols-sm-2 control-label">Wpisz login :</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input class="form-control" type="text" id="login" name="login" placeholder="login" />
+                            <form class="form-horizontal" action="login" method="post">
+                                <div class="form-group">
+                                    <label class="cols-sm-2 control-label">Wpisz login :</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input class="form-control" type="text" id="login" name="login" placeholder="login" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="cols-sm-2 control-label">Wpisz hasło :</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input class="form-control" type="password" id="haslo" name="haslo" placeholder="haslo" />
+                                <div class="form-group">
+                                    <label class="cols-sm-2 control-label">Wpisz hasło :</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input class="form-control" type="password" id="haslo" name="haslo" placeholder="haslo" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group ">
-                                <input type="submit" value="Zaloguj" class="btn btn-primary btn-lg btn-block" id="loginButton" />
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <h1 style="margin-left: 100px;">Nie masz konta?</h1>
-                        <br />
-                        <h4 style="font-weight: bold; margin-left: 100px;">Zarejestruj się w naszej poradni kardiologicznej <a href="register" style="text-decoration: none">tutaj.</a></h4>
+                                <p>${loginError}</p>
+                                <div class="form-group ">
+                                    <input type="submit" value="Zaloguj" class="btn btn-primary btn-lg btn-block" id="loginButton" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <h1 style="margin-left: 15%;">Nie masz konta?</h1>
+                            <br />
+                            <h4 style="font-weight: bold; margin-left: 15%;">Zarejestruj się w naszej poradni kardiologicznej <a href="register" style="text-decoration: none">tutaj.</a></h4>
+                        </div>
                     </div>
                 </div>
             </div>

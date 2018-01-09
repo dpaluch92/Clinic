@@ -9,8 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Panel Doktora</title>
+        <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <%@include file="style.jsp" %>
+        <script src="//code.jquery.com/jquery.min.js"></script>
+        <%@include file="calendar7js.jsp" %>
         <%@include file="doktorTabManagment.jsp" %>
     </head>
     <body onload="myFunction()">
@@ -172,13 +176,13 @@
                             </table>
                         </div>
                         <div id="recepta" class="tab-pane fade">
-                            <form class="form-horizontal" role="form" method="POST" role="form" action="doktor.recepta">
+                            <form class="form-horizontal" method="POST" role="form" action="doktor.recepta">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Pacjent :</label>
                                     <div class="col-sm-6">
                                         <select class="form-control" name="pacjentForm" >
                                             <c:forEach items="${pacjentList}" var="pacjent">
-                                                <option value="${pacjent.idPacjenta}"> ${pacjent.imie} </option>
+                                                <option value="${pacjent.idPacjenta}"> ${pacjent.imie} ${pacjent.nazwisko} </option>
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -237,7 +241,7 @@
                                     <div class="col-sm-6">
                                         <select class="form-control" name="pacjentForm" >
                                             <c:forEach items="${pacjentList}" var="pacjent">
-                                                <option value="${pacjent.idPacjenta}"> ${pacjent.imie} </option>
+                                                <option value="${pacjent.idPacjenta}"> ${pacjent.imie} ${pacjent.nazwisko}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -246,8 +250,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Termin Wizyty :</label>
                                     <div class="col-sm-6">
-                                        <input type="date" name="terminWizyty" class="form-control" />
+                                        <input name="terminWizyty" class="calendar7 form-control" />
                                     </div>
+                                    <script>
+                                        jQuery('.calendar7').Calendar7({
+                                            allowTimeStart: '1:00',
+                                            allowTimeEnd: '22:00'
+                                        });
+                                    </script>
                                 </div>
 
                                 <div class="form-group row">

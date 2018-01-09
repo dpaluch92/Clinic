@@ -17,7 +17,7 @@
         <%@include file="navbar.jsp" %>
 
         <div class="container">
-            <p>Rejestracja przebiegła pomyślnie</p>
+            <h2>Rejestracja przebiegła pomyślnie</h2>
         </div>
     </body>
 </html>

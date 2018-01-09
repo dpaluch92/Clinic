@@ -67,7 +67,7 @@ public class LoginController {
             return "redirect:/rejestracja";
         }
 
-        model.addAttribute("loginError", "Error logging in");
+        model.addAttribute("loginError", "Błąd podczas logowania");
         return "login";
     }
 
